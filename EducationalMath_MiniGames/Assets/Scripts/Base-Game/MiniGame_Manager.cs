@@ -7,17 +7,17 @@ using UnityEngine.UI;
 
 public enum MiniGameState { Pause, Idle, Playing}
 
-public class MiniGame_SelectObj : MonoBehaviour
+public class MiniGame_Manager : MonoBehaviour
 {
-    private static MiniGame_SelectObj instace;
-    public static MiniGame_SelectObj Instace { get => instace;}
+    private static MiniGame_Manager instace;
+    public static MiniGame_Manager Instace { get => instace;}
 
     public MiniGameState minigameState;
     [TextArea]
     public string gameInstruction;
 
     public UnitElementsScriptable curUnit; //The unit to play
-    public GameSelectObj_SO selectOBJ_Game;
+    public SO_BaseMiniGames curMiniGame;
     public GameObject[] miniGamePrefabs; //Game object to spawn
 
     public int numerator = 1;
@@ -29,7 +29,8 @@ public class MiniGame_SelectObj : MonoBehaviour
 
     [Header("Mini games elements")]
     public int totalHits = 0;
-    int curHits = 0;
+    [HideInInspector]
+    public int curHits = 0;
     /*
      * 0 -> correct
      * 1 -> wrong
@@ -49,7 +50,9 @@ public class MiniGame_SelectObj : MonoBehaviour
     public TextMeshProUGUI[] fraction; //0 -> numerator, 1 -> denominator
 
     public delegate void MiniGameStructure(TypeUnitFractions theUnit);
-    MiniGameStructure initMiniGame;
+    MiniGameStructure InitMiniGame;
+    public delegate void MiniGameUpdateAnswer(TypeUnitFractions theUnit);
+    MiniGameUpdateAnswer UpdateAnswer;
 
     // Start is called before the first frame update
     void Start()
@@ -62,10 +65,12 @@ public class MiniGame_SelectObj : MonoBehaviour
         width = cam.aspect * 2f * cam.orthographicSize /2f - 1.9f;
         width = (float)(Math.Round((double)width, 1));
 
-        initMiniGame += selectOBJ_Game.InitGame;
-        initMiniGame += selectOBJ_Game.GenerateGameElement;
+        InitMiniGame += curMiniGame.InitGame;
+        InitMiniGame += curMiniGame.GenerateGameElement;
 
-        initMiniGame(curUnit.unitFractionName);
+        UpdateAnswer = curMiniGame.UpdateGameCondition;
+
+        InitMiniGame(curUnit.unitFractionName);
     }
 
     public void CheckAnswer()
@@ -96,12 +101,7 @@ public class MiniGame_SelectObj : MonoBehaviour
     //The method is called when the player choose an object or an answer
     public void UpdateGameCondition()
     {
-        //For mini game "Select Object"
-        curHits++;
-        if(!btnsFeedback[0].gameObject.activeInHierarchy)
-        {
-            btnsFeedback[0].gameObject.SetActive(true); //btn check answer
-        }
+        UpdateAnswer(curUnit.unitFractionName);
     }
 
     public void ChangeAnswer()

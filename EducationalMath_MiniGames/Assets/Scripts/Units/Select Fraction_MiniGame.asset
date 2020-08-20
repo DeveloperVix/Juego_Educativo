@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83fc94602ab49944ba6553e4fa611f2b, type: 3}
-  m_Name: Select Obj_MiniGame
+  m_Script: {fileID: 11500000, guid: 64fca36edf731774f95805f748a037c4, type: 3}
+  m_Name: Select Fraction_MiniGame
   m_EditorClassIdentifier: 
   objPrefab:
-  - {fileID: 2911578740446910544, guid: 7f866415363b10d43aa4ddba8cbd292c, type: 3}
+  - {fileID: 257498955757898908, guid: e36fe38878f2cb44dba5a71e96f263a7, type: 3}
