@@ -17,7 +17,7 @@ public class BaseObjInteractable : MonoBehaviour
         else
         {
             imgStatus.color = Color.white;
-            MiniGame_Manager.Instace.ChangeAnswer();
+            MiniGame_Manager.Instace.ChangeAnswerMiniGame();
             selected = false;
         }
     }

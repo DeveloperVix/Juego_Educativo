@@ -20,6 +20,7 @@ public class GameSelectObj_SO : SO_BaseMiniGames
             }
             MiniGame_Manager.Instace.fraction[0].text = MiniGame_Manager.Instace.numerator.ToString();
             MiniGame_Manager.Instace.fraction[1].text = MiniGame_Manager.Instace.denominator.ToString();
+            MiniGame_Manager.Instace.fraction[2].gameObject.transform.parent.gameObject.SetActive(false);
             //for the proper fractions, the player need to select the number of objects based on the numerator
             MiniGame_Manager.Instace.totalHits = MiniGame_Manager.Instace.numerator;
         }
@@ -67,6 +68,20 @@ public class GameSelectObj_SO : SO_BaseMiniGames
             if (!MiniGame_Manager.Instace.btnsFeedback[0].gameObject.activeInHierarchy)
             {
                 MiniGame_Manager.Instace.btnsFeedback[0].gameObject.SetActive(true); //btn check answer
+            }
+        }
+    }
+
+    public override void ChangeAnswer(TypeUnitFractions curUnit)
+    {
+        if (curUnit == TypeUnitFractions.ProperFractions)
+        {
+            //if the player changes his answer by reselecting a previously selected object
+            MiniGame_Manager.Instace.curHits--;
+            if (MiniGame_Manager.Instace.curHits <= 0)
+            {
+                MiniGame_Manager.Instace.curHits = 0;
+                MiniGame_Manager.Instace.btnsFeedback[0].gameObject.SetActive(false);
             }
         }
     }

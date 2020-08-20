@@ -14,8 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitFractionName: 3
   unitPoints: 10
-  spritesInstructionsMiniGame: []
+  spritesInstructionsMiniGame:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   textInstructionsMiniGames:
   - "Una fracci\xF3n se llama propia si su numerador es menor que se denominador."
-  - Haz tap sobre los objetos
   difficultyLevel: 1

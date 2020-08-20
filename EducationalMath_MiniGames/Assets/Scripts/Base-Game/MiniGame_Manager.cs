@@ -5,24 +5,22 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public enum MiniGameState { Pause, Idle, Playing}
+public enum MiniGameState { Pause, Idle, Playing }
 
 public class MiniGame_Manager : MonoBehaviour
 {
     private static MiniGame_Manager instace;
-    public static MiniGame_Manager Instace { get => instace;}
+    public static MiniGame_Manager Instace { get => instace; }
 
     public MiniGameState minigameState;
-    [TextArea]
-    public string gameInstruction;
 
     public UnitElementsScriptable curUnit; //The unit to play
     public SO_BaseMiniGames curMiniGame;
-    public GameObject[] miniGamePrefabs; //Game object to spawn
 
     public int numerator = 1;
     public int denominator = 0;
 
+    [Header("Camera's dimension")]
     public float height = 0f;
     public float width = 0;
     Camera cam;
@@ -45,14 +43,18 @@ public class MiniGame_Manager : MonoBehaviour
     */
     public Button[] btnsFeedback;
     public TextMeshProUGUI txtFeedbackAnswers;
+    public TextMeshProUGUI txtGoalGame;
 
-    [Header("SelectObj Elements")]
-    public TextMeshProUGUI[] fraction; //0 -> numerator, 1 -> denominator
-
+    //Delegates
     public delegate void MiniGameStructure(TypeUnitFractions theUnit);
     MiniGameStructure InitMiniGame;
     public delegate void MiniGameUpdateAnswer(TypeUnitFractions theUnit);
     MiniGameUpdateAnswer UpdateAnswer;
+    public delegate void MiniGameChangeAnswer(TypeUnitFractions theUnit);
+    MiniGameChangeAnswer ChangeAnswer;
+
+    [Header("SelectObj Elements")]
+    public TextMeshProUGUI[] fraction; //0 -> numerator, 1 -> denominator
 
     // Start is called before the first frame update
     void Start()
@@ -62,20 +64,45 @@ public class MiniGame_Manager : MonoBehaviour
         cam = Camera.main;
         //The width and heigth of the camera
         height = 2f * cam.orthographicSize;
-        width = cam.aspect * 2f * cam.orthographicSize /2f - 1.9f;
+        width = cam.aspect * 2f * cam.orthographicSize / 2f - 1.9f;
         width = (float)(Math.Round((double)width, 1));
 
         InitMiniGame += curMiniGame.InitGame;
         InitMiniGame += curMiniGame.GenerateGameElement;
 
         UpdateAnswer = curMiniGame.UpdateGameCondition;
+        ChangeAnswer = curMiniGame.ChangeAnswer;
 
         InitMiniGame(curUnit.unitFractionName);
+        UpdateGoalGame();
+    }
+
+    void UpdateGoalGame()
+    {
+        if (curMiniGame.goalGame.Length > 1)
+        {
+            switch (curUnit.unitFractionName)
+            {
+                case TypeUnitFractions.ProperFractions:
+                    txtGoalGame.text = curMiniGame.goalGame[0];
+            break;
+                case TypeUnitFractions.ImproperFractions:
+                    txtGoalGame.text = curMiniGame.goalGame[1];
+                    break;
+                case TypeUnitFractions.MixedFractions:
+                    txtGoalGame.text = curMiniGame.goalGame[2];
+                    break;
+            }
+        }
+        else
+        {
+            txtGoalGame.text = curMiniGame.goalGame[0];
+        }
     }
 
     public void CheckAnswer()
     {
-        if(curHits == totalHits)
+        if (curHits == totalHits)
         {
             txtFeedbackAnswers.text = "Respuesta correcta";
             goodBadSprite.sprite = goodBadSprites[0];
@@ -104,14 +131,8 @@ public class MiniGame_Manager : MonoBehaviour
         UpdateAnswer(curUnit.unitFractionName);
     }
 
-    public void ChangeAnswer()
+    public void ChangeAnswerMiniGame()
     {
-        //if the player changes his answer by reselecting a previously selected object
-        curHits--;
-        if(curHits <= 0)
-        {
-            curHits = 0;
-            btnsFeedback[0].gameObject.SetActive(false);
-        }
+        ChangeAnswer(curUnit.unitFractionName);
     }
 }

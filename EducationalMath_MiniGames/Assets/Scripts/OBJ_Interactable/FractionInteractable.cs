@@ -33,7 +33,7 @@ public class FractionInteractable : BaseObjInteractable
         if (MiniGame_Manager.Instace.minigameState != MiniGameState.Playing)
             return;
         
-        if(!selected && typeFractionToSelect == MiniGame_Manager.Instace.curUnit.unitFractionName)
+        if(!selected)
         {
             imgStatus.color = Color.red;
             integerSprite.color = Color.red;
@@ -44,7 +44,7 @@ public class FractionInteractable : BaseObjInteractable
         {
             imgStatus.color = Color.white;
             integerSprite.color = Color.red;
-            MiniGame_Manager.Instace.ChangeAnswer();
+            MiniGame_Manager.Instace.ChangeAnswerMiniGame();
             selected = false;
         }
     }

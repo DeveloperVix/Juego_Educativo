@@ -1,22 +1,46 @@
 ﻿
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Mini Games/Select Fraction", fileName = "Select Fraction_MiniGame")]
 public class GameSelectFractions : SO_BaseMiniGames
 {
-    int totalFractions = 0;
+    int totalFractionsToSelect = 0;
+    public bool[] posFraction;
     public override void InitGame(TypeUnitFractions curUnit)
     {
         Debug.Log("Set Conditions");
         if (curUnit == TypeUnitFractions.ProperFractions)
         {
-            totalFractions = Random.Range(1, 7);
-            MiniGame_Manager.Instace.totalHits = totalFractions;
+            totalFractionsToSelect = Random.Range(1, 7);
+            MiniGame_Manager.Instace.totalHits = totalFractionsToSelect;
+            for (int i = 0; i < MiniGame_Manager.Instace.fraction.Length; i++)
+            {
+                MiniGame_Manager.Instace.fraction[i].gameObject.transform.parent.gameObject.SetActive(false);
+            }
         }
     }
     public override void GenerateGameElement(TypeUnitFractions curUnit)
     {
         Debug.Log("Elements mini game");
+        posFraction = new bool[6];
+        int totalRand = totalFractionsToSelect;
+
+        for (int i = 0; i < 6; i++)
+        {
+            posFraction[i] = false;
+        }
+
+        while (totalRand > 0)
+        {
+            int randPos = Random.Range(0, posFraction.Length);
+            if (posFraction[randPos] == false)
+            {
+                posFraction[randPos] = true;
+                totalRand--;
+            }
+        }
+
         if (curUnit == TypeUnitFractions.ProperFractions)
         {
             float posX = MiniGame_Manager.Instace.width - 2f;
@@ -25,7 +49,7 @@ public class GameSelectFractions : SO_BaseMiniGames
 
             Vector3 fractionPos = new Vector3(posX, posY, 0);
             Instantiate(objPrefab[0], fractionPos, Quaternion.identity);
- 
+
             for (int i = 0; i < 2; i++)
             {
                 for (int y = 0; y < 3; y++)
@@ -37,13 +61,17 @@ public class GameSelectFractions : SO_BaseMiniGames
                 posX = MiniGame_Manager.Instace.width - 2f;
                 fractionPos.x = posX;
                 posY -= 3f;
-                fractionPos.y = posY; 
+                fractionPos.y = posY;
             }
         }
     }
 
     public override void UpdateGameCondition(TypeUnitFractions curUnit)
     {
+        
+    }
 
+    public override void ChangeAnswer(TypeUnitFractions curUnit)
+    {
     }
 }

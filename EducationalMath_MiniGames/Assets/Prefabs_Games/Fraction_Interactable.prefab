@@ -361,7 +361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selected: 0
   imgStatus: {fileID: 3169074672288534030}
-  integerSprite: {fileID: 0}
+  integerSprite: {fileID: 1091342929}
   typeFractionToSelect: 0
   numeratorTxt: {fileID: 3169074671564362350}
   denominatorTxt: {fileID: 3169074671744906911}
