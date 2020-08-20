@@ -7,17 +7,17 @@ using UnityEngine.UI;
 
 public enum MiniGameState { Pause, Idle, Playing}
 
-public class MiniGame_Elements : MonoBehaviour
+public class MiniGame_SelectObj : MonoBehaviour
 {
-    private static MiniGame_Elements instace;
-    public static MiniGame_Elements Instace { get => instace;}
+    private static MiniGame_SelectObj instace;
+    public static MiniGame_SelectObj Instace { get => instace;}
 
     public MiniGameState minigameState;
     [TextArea]
     public string gameInstruction;
 
     public UnitElementsScriptable curUnit; //The unit to play
-
+    public GameSelectObj_SO selectOBJ_Game;
     public GameObject[] miniGamePrefabs; //Game object to spawn
 
     public int numerator = 1;
@@ -48,6 +48,9 @@ public class MiniGame_Elements : MonoBehaviour
     [Header("SelectObj Elements")]
     public TextMeshProUGUI[] fraction; //0 -> numerator, 1 -> denominator
 
+    public delegate void MiniGameStructure(TypeUnitFractions theUnit);
+    MiniGameStructure initMiniGame;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,24 +62,10 @@ public class MiniGame_Elements : MonoBehaviour
         width = cam.aspect * 2f * cam.orthographicSize /2f - 1.9f;
         width = (float)(Math.Round((double)width, 1));
 
-        #region Proper fraction
-        //This is for proper fraction, at the begining, numerator = 1, denominator = 0
-        while (minigameState == MiniGameState.Idle)
-        {
-            numerator = UnityEngine.Random.Range (1,11);
-            denominator = UnityEngine.Random.Range(2,11);
-            if(numerator < denominator)
-            {
-                minigameState = MiniGameState.Playing;
-            }
-        }
-        fraction[0].text = numerator.ToString();
-        fraction[1].text = denominator.ToString();
-        //for the proper fractions, the player need to select the number of objects based on the numerator
-        totalHits = numerator;
-        #endregion
+        initMiniGame += selectOBJ_Game.InitGame;
+        initMiniGame += selectOBJ_Game.GenerateGameElement;
 
-        GenerateGameElements();
+        initMiniGame(curUnit.unitFractionName);
     }
 
     public void CheckAnswer()
@@ -123,45 +112,6 @@ public class MiniGame_Elements : MonoBehaviour
         {
             curHits = 0;
             btnsFeedback[0].gameObject.SetActive(false);
-        }
-    }
-
-    public void InitGameElements()
-    {
-        //Initialize the mini game elements, UI, etc
-    }
-
-    public virtual void GenerateGameElements()
-    {
-        //Create all the elements for the mini game
-
-
-        //For the mini game "Select Object"
-        int posX = 0;
-        int posY = 0;
-        
-        Vector3 objPartPosition = new Vector3(posX, posY,0);
-        Instantiate(miniGamePrefabs[0], objPartPosition, Quaternion.identity);
-        bool right = true;
-        
-        for (int i = 0; i < denominator-1; i++)
-        {    
-            
-            if(right)
-            {
-                posX++;
-                objPartPosition.x = posX;
-                Instantiate(miniGamePrefabs[0], objPartPosition, Quaternion.identity);
-                right = false;
-            }
-            else
-            {
-                posX *= -1;
-                objPartPosition.x = posX;
-                Instantiate(miniGamePrefabs[0], objPartPosition, Quaternion.identity);
-                posX *= -1;
-                right = true;
-            } 
         }
     }
 }

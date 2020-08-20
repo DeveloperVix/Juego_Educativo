@@ -13,20 +13,20 @@ public class ObjSelected : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (MiniGame_Elements.Instace.minigameState != MiniGameState.Playing)
+        if (MiniGame_SelectObj.Instace.minigameState != MiniGameState.Playing)
             return;
 
         Debug.Log("Tap en :" + gameObject.name);
         if(!selected)
         {
             imgStatus.color = Color.red;
-            MiniGame_Elements.Instace.UpdateGameCondition();
+            MiniGame_SelectObj.Instace.UpdateGameCondition();
             selected = true;
         }
         else
         {
             imgStatus.color = Color.white;
-            MiniGame_Elements.Instace.ChangeAnswer();
+            MiniGame_SelectObj.Instace.ChangeAnswer();
             selected = false;
         }
     }
