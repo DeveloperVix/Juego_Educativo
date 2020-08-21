@@ -23,6 +23,8 @@ public class GameSelectFractions : SO_BaseMiniGames
     public override void GenerateGameElement(TypeUnitFractions curUnit)
     {
         Debug.Log("Elements mini game");
+        int[] fractionRand = new int[3];
+        GameObject curFractionG;
         posFraction = new bool[6];
         int totalRand = totalFractionsToSelect;
 
@@ -48,30 +50,45 @@ public class GameSelectFractions : SO_BaseMiniGames
             float posY = (MiniGame_Manager.Instace.height / 2f) - 3.5f;
 
             Vector3 fractionPos = new Vector3(posX, posY, 0);
-            Instantiate(objPrefab[0], fractionPos, Quaternion.identity);
+            int indexPosFraction = 0;
 
             for (int i = 0; i < 2; i++)
             {
                 for (int y = 0; y < 3; y++)
                 {
-                    Instantiate(objPrefab[0], fractionPos, Quaternion.identity);
+                    curFractionG = Instantiate(objPrefab[0], fractionPos, Quaternion.identity);
+                    if (posFraction[indexPosFraction])
+                    {
+                        fractionRand = GenerateFraction(curUnit);
+                        curFractionG.GetComponent<FractionInteractable>().typeFractionToSelect = curUnit;
+                    }
+                    else
+                    {
+                        Debug.Log("Fracción aleatoria");
+                        int setRandF = Random.Range(1, 20);
+                        if (setRandF <= 10)
+                        {
+                            fractionRand = GenerateFraction(TypeUnitFractions.ImproperFractions);
+                            curFractionG.GetComponent<FractionInteractable>().typeFractionToSelect = TypeUnitFractions.ImproperFractions;
+                        }
+                        else
+                        {
+                            fractionRand = GenerateFraction(TypeUnitFractions.MixedFractions);
+                            curFractionG.GetComponent<FractionInteractable>().typeFractionToSelect = TypeUnitFractions.MixedFractions;
+                        }
+                    }
+
+                    curFractionG.GetComponent<FractionInteractable>().SetFractionTxt(fractionRand[2], fractionRand[0], fractionRand[1]);
                     posX -= 5;
                     fractionPos.x = posX;
+                    indexPosFraction++;
                 }
                 posX = MiniGame_Manager.Instace.width - 2f;
                 fractionPos.x = posX;
                 posY -= 3f;
                 fractionPos.y = posY;
             }
+            curFractionG = null;
         }
-    }
-
-    public override void UpdateGameCondition(TypeUnitFractions curUnit)
-    {
-        
-    }
-
-    public override void ChangeAnswer(TypeUnitFractions curUnit)
-    {
     }
 }

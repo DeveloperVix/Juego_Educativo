@@ -1814,9 +1814,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigameState: 1
   curUnit: {fileID: 11400000, guid: 7c5881005ed64f34ba8308fd2f7a7e53, type: 2}
-  curMiniGame: {fileID: 11400000, guid: 8a35aef9bb5ab0e41ae2a270df8fb779, type: 2}
+  curMiniGame: {fileID: 11400000, guid: 6b43a0c6c5dbb104da4956df26dfb8b6, type: 2}
   numerator: 1
   denominator: 0
+  integer: 1
   height: 0
   width: 0
   totalHits: 0

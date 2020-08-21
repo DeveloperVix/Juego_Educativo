@@ -17,8 +17,10 @@ public class MiniGame_Manager : MonoBehaviour
     public UnitElementsScriptable curUnit; //The unit to play
     public SO_BaseMiniGames curMiniGame;
 
+    [Header("Fraction")]
     public int numerator = 1;
     public int denominator = 0;
+    public int integer = 1;
 
     [Header("Camera's dimension")]
     public float height = 0f;
@@ -27,7 +29,7 @@ public class MiniGame_Manager : MonoBehaviour
 
     [Header("Mini games elements")]
     public int totalHits = 0;
-    [HideInInspector]
+    //[HideInInspector]
     public int curHits = 0;
     /*
      * 0 -> correct
@@ -48,10 +50,6 @@ public class MiniGame_Manager : MonoBehaviour
     //Delegates
     public delegate void MiniGameStructure(TypeUnitFractions theUnit);
     MiniGameStructure InitMiniGame;
-    public delegate void MiniGameUpdateAnswer(TypeUnitFractions theUnit);
-    MiniGameUpdateAnswer UpdateAnswer;
-    public delegate void MiniGameChangeAnswer(TypeUnitFractions theUnit);
-    MiniGameChangeAnswer ChangeAnswer;
 
     [Header("SelectObj Elements")]
     public TextMeshProUGUI[] fraction; //0 -> numerator, 1 -> denominator
@@ -70,11 +68,9 @@ public class MiniGame_Manager : MonoBehaviour
         InitMiniGame += curMiniGame.InitGame;
         InitMiniGame += curMiniGame.GenerateGameElement;
 
-        UpdateAnswer = curMiniGame.UpdateGameCondition;
-        ChangeAnswer = curMiniGame.ChangeAnswer;
-
         InitMiniGame(curUnit.unitFractionName);
         UpdateGoalGame();
+        minigameState = MiniGameState.Playing;
     }
 
     void UpdateGoalGame()
@@ -85,7 +81,7 @@ public class MiniGame_Manager : MonoBehaviour
             {
                 case TypeUnitFractions.ProperFractions:
                     txtGoalGame.text = curMiniGame.goalGame[0];
-            break;
+                    break;
                 case TypeUnitFractions.ImproperFractions:
                     txtGoalGame.text = curMiniGame.goalGame[1];
                     break;
@@ -128,11 +124,35 @@ public class MiniGame_Manager : MonoBehaviour
     //The method is called when the player choose an object or an answer
     public void UpdateGameCondition()
     {
-        UpdateAnswer(curUnit.unitFractionName);
+        //Increase if the answer is correct
+        curHits++;
+        if (!MiniGame_Manager.Instace.btnsFeedback[0].gameObject.activeInHierarchy)
+        {
+            MiniGame_Manager.Instace.btnsFeedback[0].gameObject.SetActive(true); //btn check answer
+        }
+    }
+
+    public void UpdateGameCondition(TypeUnitFractions objFraction)
+    {
+        if (objFraction == curUnit.unitFractionName)
+        {
+            UpdateGameCondition();
+        }
+
+        if (!btnsFeedback[0].gameObject.activeInHierarchy)
+        {
+            btnsFeedback[0].gameObject.SetActive(true); //btn check answer
+        }
     }
 
     public void ChangeAnswerMiniGame()
     {
-        ChangeAnswer(curUnit.unitFractionName);
+        //if the player changes his answer by reselecting a previously selected object
+        curHits--;
+        if (curHits <= 0)
+        {
+            curHits = 0;
+            btnsFeedback[0].gameObject.SetActive(false);
+        }
     }
 }

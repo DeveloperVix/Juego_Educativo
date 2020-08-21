@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54b066198a505d744a65fc14b90f5dda, type: 3}
   m_Name: ProperFractions
   m_EditorClassIdentifier: 
-  unitFractionName: 3
+  unitFractionName: 2
   unitPoints: 10
   spritesInstructionsMiniGame:
   - {fileID: 0}

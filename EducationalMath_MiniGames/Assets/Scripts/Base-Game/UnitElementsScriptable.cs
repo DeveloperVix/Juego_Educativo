@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TypeUnitFractions { FractionElements, FractionIdentification, MixedFractions, ProperFractions, ImproperFractions}
+public enum TypeUnitFractions { FractionElements, FractionIdentification, ProperFractions, ImproperFractions, MixedFractions}
 
 [CreateAssetMenu(menuName = "Unit", fileName ="UnitName")]
 public class UnitElementsScriptable : ScriptableObject
