@@ -18,3 +18,4 @@ MonoBehaviour:
   - Selecciona las fracciones mixtas
   objPrefab:
   - {fileID: 257498955757898908, guid: e36fe38878f2cb44dba5a71e96f263a7, type: 3}
+  posFraction: 000001000100

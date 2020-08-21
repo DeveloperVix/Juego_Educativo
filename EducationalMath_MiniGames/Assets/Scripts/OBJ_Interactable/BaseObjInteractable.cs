@@ -11,13 +11,13 @@ public class BaseObjInteractable : MonoBehaviour
         if(!selected)
         {
             imgStatus.color = Color.red;
-            MiniGame_Manager.Instace.UpdateGameCondition();
+            UI_Controller.Instance.UpdateGameCondition();
             selected = true;
         }
         else
         {
             imgStatus.color = Color.white;
-            MiniGame_Manager.Instace.ChangeAnswerMiniGame();
+            UI_Controller.Instance.ChangeAnswerMiniGame();
             selected = false;
         }
     }

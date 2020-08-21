@@ -13,10 +13,10 @@ public class GameSelectFractions : SO_BaseMiniGames
         if (curUnit == TypeUnitFractions.ProperFractions)
         {
             totalFractionsToSelect = Random.Range(1, 7);
-            MiniGame_Manager.Instace.totalHits = totalFractionsToSelect;
-            for (int i = 0; i < MiniGame_Manager.Instace.fraction.Length; i++)
+            MiniGame_Manager.Instance.totalHits = totalFractionsToSelect;
+            for (int i = 0; i < UI_Controller.Instance.fraction.Length; i++)
             {
-                MiniGame_Manager.Instace.fraction[i].gameObject.transform.parent.gameObject.SetActive(false);
+                UI_Controller.Instance.fraction[i].gameObject.transform.parent.gameObject.SetActive(false);
             }
         }
     }
@@ -45,9 +45,9 @@ public class GameSelectFractions : SO_BaseMiniGames
 
         if (curUnit == TypeUnitFractions.ProperFractions)
         {
-            float posX = MiniGame_Manager.Instace.width - 2f;
+            float posX = MiniGame_Manager.Instance.width - 2f;
             //E.J. if widht is 10, on coordinates is -5 to 5, divide, -4 is the offset 
-            float posY = (MiniGame_Manager.Instace.height / 2f) - 3.5f;
+            float posY = (MiniGame_Manager.Instance.height / 2f) - 3.5f;
 
             Vector3 fractionPos = new Vector3(posX, posY, 0);
             int indexPosFraction = 0;
@@ -83,7 +83,7 @@ public class GameSelectFractions : SO_BaseMiniGames
                     fractionPos.x = posX;
                     indexPosFraction++;
                 }
-                posX = MiniGame_Manager.Instace.width - 2f;
+                posX = MiniGame_Manager.Instance.width - 2f;
                 fractionPos.x = posX;
                 posY -= 3f;
                 fractionPos.y = posY;

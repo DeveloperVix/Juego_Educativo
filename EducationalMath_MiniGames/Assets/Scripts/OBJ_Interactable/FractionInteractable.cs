@@ -30,21 +30,21 @@ public class FractionInteractable : BaseObjInteractable
 
     public override void OnMouseDown()
     {
-        if (MiniGame_Manager.Instace.minigameState != MiniGameState.Playing)
+        if (MiniGame_Manager.Instance.minigameState != MiniGameState.Playing)
             return;
         
         if(!selected)
         {
             imgStatus.color = Color.red;
             integerSprite.color = Color.red;
-            MiniGame_Manager.Instace.UpdateGameCondition(typeFractionToSelect);
+            UI_Controller.Instance.UpdateGameCondition(typeFractionToSelect);
             selected = true;
         }
         else if(selected)
         {
             imgStatus.color = Color.white;
             integerSprite.color = Color.white;
-            MiniGame_Manager.Instace.ChangeAnswerMiniGame();
+            UI_Controller.Instance.ChangeAnswerMiniGame(typeFractionToSelect);
             selected = false;
         }
     }

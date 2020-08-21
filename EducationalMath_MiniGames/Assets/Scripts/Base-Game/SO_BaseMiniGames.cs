@@ -2,6 +2,8 @@
 
 public abstract class SO_BaseMiniGames : ScriptableObject
 {
+    public bool listed = false;
+    public bool completed = false;
     [TextArea(3, 5)]
     public string[] goalGame;
     public GameObject[] objPrefab;

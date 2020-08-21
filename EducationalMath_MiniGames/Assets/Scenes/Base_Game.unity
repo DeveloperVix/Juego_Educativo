@@ -1144,6 +1144,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1056444063}
   m_CullTransparentMesh: 0
+--- !u!1 &1056769524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1056769525}
+  - component: {fileID: 1056769526}
+  m_Layer: 0
+  m_Name: App_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1056769525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056769524}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1056769526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056769524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eb756d408806f340a84d223c9b75eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theUnits:
+  - {fileID: 11400000, guid: 7c5881005ed64f34ba8308fd2f7a7e53, type: 2}
+  unitSelected: {fileID: 11400000, guid: 7c5881005ed64f34ba8308fd2f7a7e53, type: 2}
+  miniGames:
+  - {fileID: 11400000, guid: 6b43a0c6c5dbb104da4956df26dfb8b6, type: 2}
+  - {fileID: 11400000, guid: 8a35aef9bb5ab0e41ae2a270df8fb779, type: 2}
 --- !u!1 &1165080159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,7 +1323,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1916358169}
+      - m_Target: {fileID: 1916358171}
         m_MethodName: CheckAnswer
         m_Mode: 1
         m_Arguments:
@@ -1793,8 +1842,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1916358170}
   - component: {fileID: 1916358169}
+  - component: {fileID: 1916358171}
   m_Layer: 0
-  m_Name: MiniGame_SelectObj
+  m_Name: MiniGame_Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1813,8 +1863,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minigameState: 1
-  curUnit: {fileID: 11400000, guid: 7c5881005ed64f34ba8308fd2f7a7e53, type: 2}
-  curMiniGame: {fileID: 11400000, guid: 6b43a0c6c5dbb104da4956df26dfb8b6, type: 2}
+  curUnit: {fileID: 0}
+  curMiniGame: {fileID: 0}
+  miniGamesToPlay: []
+  indexMiniGame: -1
   numerator: 1
   denominator: 0
   integer: 1
@@ -1822,6 +1874,33 @@ MonoBehaviour:
   width: 0
   totalHits: 0
   curHits: 0
+  badAnswer: 0
+--- !u!4 &1916358170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916358168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1916358171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916358168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 257be00f17332ce4c9de1a6124665304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   goodBadSprite: {fileID: 1395814300}
   goodBadSprites:
   - {fileID: 21300000, guid: f3c6f9464731ee94a8a89adeefc7545a, type: 3}
@@ -1837,20 +1916,6 @@ MonoBehaviour:
   - {fileID: 5360522}
   - {fileID: 358588656}
   - {fileID: 635548974}
---- !u!4 &1916358170
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1916358168}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1936203021
 GameObject:
   m_ObjectHideFlags: 0

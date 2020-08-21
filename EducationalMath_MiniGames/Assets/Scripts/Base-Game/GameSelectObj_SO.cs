@@ -10,24 +10,14 @@ public class GameSelectObj_SO : SO_BaseMiniGames
         if (curUnit == TypeUnitFractions.ProperFractions)
         {   
             fractionRand = GenerateFraction(curUnit);
-            MiniGame_Manager.Instace.numerator = fractionRand[0];
-            MiniGame_Manager.Instace.denominator = fractionRand[1];
+            MiniGame_Manager.Instance.numerator = fractionRand[0];
+            MiniGame_Manager.Instance.denominator = fractionRand[1];
 
-            //This is for proper fraction, at the begining, numerator = 1, denominator = 0
-            /*while (MiniGame_Manager.Instace.minigameState == MiniGameState.Idle)
-            {
-                MiniGame_Manager.Instace.numerator = UnityEngine.Random.Range(1, 11);
-                MiniGame_Manager.Instace.denominator = UnityEngine.Random.Range(2, 11);
-                if (MiniGame_Manager.Instace.numerator < MiniGame_Manager.Instace.denominator)
-                {
-                    MiniGame_Manager.Instace.minigameState = MiniGameState.Playing;
-                }
-            }*/
-            MiniGame_Manager.Instace.fraction[0].text = MiniGame_Manager.Instace.numerator.ToString();
-            MiniGame_Manager.Instace.fraction[1].text = MiniGame_Manager.Instace.denominator.ToString();
-            MiniGame_Manager.Instace.fraction[2].gameObject.transform.parent.gameObject.SetActive(false);
+            UI_Controller.Instance.fraction[0].text = MiniGame_Manager.Instance.numerator.ToString();
+            UI_Controller.Instance.fraction[1].text = MiniGame_Manager.Instance.denominator.ToString();
+            UI_Controller.Instance.fraction[2].gameObject.transform.parent.gameObject.SetActive(false);
             //for the proper fractions, the player need to select the number of objects based on the numerator
-            MiniGame_Manager.Instace.totalHits = MiniGame_Manager.Instace.numerator;
+            MiniGame_Manager.Instance.totalHits = MiniGame_Manager.Instance.numerator;
         }
     }
 
@@ -43,7 +33,7 @@ public class GameSelectObj_SO : SO_BaseMiniGames
             Instantiate(objPrefab[0], objPartPosition, Quaternion.identity);
             bool right = true;
 
-            for (int i = 0; i < MiniGame_Manager.Instace.denominator - 1; i++)
+            for (int i = 0; i < MiniGame_Manager.Instance.denominator - 1; i++)
             {
                 if (right)
                 {
