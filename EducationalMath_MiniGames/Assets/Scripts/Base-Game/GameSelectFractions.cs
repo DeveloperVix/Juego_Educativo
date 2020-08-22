@@ -7,6 +7,7 @@ public class GameSelectFractions : SO_BaseMiniGames
 {
     int totalFractionsToSelect = 0;
     public bool[] posFraction;
+
     public override void InitGame(TypeUnitFractions curUnit)
     {
         Debug.Log("Set Conditions");

@@ -7,6 +7,7 @@ public abstract class SO_BaseMiniGames : ScriptableObject
     [TextArea(3, 5)]
     public string[] goalGame;
     public GameObject[] objPrefab;
+
     public abstract void InitGame(TypeUnitFractions curUnit);
 
     public abstract void GenerateGameElement(TypeUnitFractions curUnit);

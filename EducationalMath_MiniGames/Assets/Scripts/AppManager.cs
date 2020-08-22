@@ -19,8 +19,7 @@ public class AppManager : MonoBehaviour
     [Header("The mini games")]
     public SO_BaseMiniGames[] miniGames;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         //Singleton
         if(instance == null)
@@ -32,15 +31,17 @@ public class AppManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        for (int i = 0; i < miniGames.Length; i++)
-        {
-            miniGames[i].listed = false;
-        }
+        
     }
 
     public void MiniGamesSequence()
     {
+        for (int i = 0; i < miniGames.Length; i++)
+        {
+            miniGames[i].listed = false;
+            miniGames[i].completed = false;
+        }
+
         int totalMiniGames = miniGames.Length;
 
         while(totalMiniGames > 0)
@@ -53,5 +54,6 @@ public class AppManager : MonoBehaviour
                 totalMiniGames--;
             }
         }
+        MiniGame_Manager.Instance.curUnit = unitSelected;
     }
 }

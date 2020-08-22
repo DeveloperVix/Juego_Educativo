@@ -33,7 +33,7 @@ public class MiniGame_Manager : MonoBehaviour
     public int curHits = 0;
 
     public int badAnswer = 0;
-    
+
 
     //Delegates
     public delegate void MiniGameStructure(TypeUnitFractions theUnit);
@@ -41,7 +41,7 @@ public class MiniGame_Manager : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         instance = this;
 
@@ -52,25 +52,61 @@ public class MiniGame_Manager : MonoBehaviour
         height = 2f * cam.orthographicSize;
         width = cam.aspect * 2f * cam.orthographicSize / 2f - 1.9f;
         width = (float)(Math.Round((double)width, 1));
+    }
 
+    private void Start()
+    {
         AppManager.Instance.MiniGamesSequence();
+        SetMiniGame();
+
     }
 
     //Call this method when the list of mini games is ready 
     public void SetMiniGame()
     {
         indexMiniGame++;
-        if(indexMiniGame == miniGamesToPlay.Count)
+        if (indexMiniGame == miniGamesToPlay.Count)
         {
             Debug.LogError("Mini juegos terminados");
         }
-        curMiniGame = miniGamesToPlay[indexMiniGame];
+        else
+        {
+            curMiniGame = miniGamesToPlay[indexMiniGame];
+            UI_Controller.Instance.ResetUI();
 
-        InitMiniGame += curMiniGame.InitGame;
-        InitMiniGame += curMiniGame.GenerateGameElement;
+            var objsGame = FindObjectsOfType<BaseObjInteractable>();
+            for (int i = 0; i < objsGame.Length; i++)
+            {
+                Destroy(objsGame[i].gameObject);
+            }
 
-        InitMiniGame(curUnit.unitFractionName);
-        UI_Controller.Instance.UpdateGoalGame();
-        minigameState = MiniGameState.Playing;
+            curHits = 0;
+            badAnswer = 0;
+
+            InitMiniGame += curMiniGame.InitGame;
+            InitMiniGame += curMiniGame.GenerateGameElement;
+
+            InitMiniGame(curUnit.unitFractionName);
+            InitMiniGame -= curMiniGame.InitGame;
+            InitMiniGame -= curMiniGame.GenerateGameElement;
+            UI_Controller.Instance.UpdateGoalGame();
+            minigameState = MiniGameState.Playing;
+        }
+    }
+
+    public void MiniGameAtEnd()
+    {
+        SO_BaseMiniGames tempMiniGame = curMiniGame;
+        indexMiniGame--;
+
+        for (int i = 0; i < miniGamesToPlay.Count; i++)
+        {
+            if(miniGamesToPlay[i].name == curMiniGame.name)
+            {
+                miniGamesToPlay.RemoveAt(i);
+            }
+        }
+        miniGamesToPlay.Add(tempMiniGame);
+        tempMiniGame = null;
     }
 }

@@ -29,7 +29,7 @@ public class UI_Controller : MonoBehaviour
     public TextMeshProUGUI[] fraction; //0 -> numerator, 1 -> denominator, 2 -> integer
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         instance = this;
     }
@@ -67,6 +67,8 @@ public class UI_Controller : MonoBehaviour
             btnsFeedback[1].image.sprite = goodBadSprites[2];
 
             //Suma puntos completos a los puntos actuales del jugador
+
+            MiniGame_Manager.Instance.curMiniGame.completed = true;
         }
         else
         {
@@ -75,12 +77,21 @@ public class UI_Controller : MonoBehaviour
             btnsFeedback[1].image.sprite = goodBadSprites[3];
 
             //pasar el mini juego al final de la lista de los juegos por jugar
+            MiniGame_Manager.Instance.MiniGameAtEnd();
             //Suma la mitad de puntos a los puntos actuales del jugador
         }
         txtFeedbackAnswers.gameObject.SetActive(true);
         goodBadSprite.gameObject.SetActive(true);
         MiniGame_Manager.Instance.minigameState = MiniGameState.Idle;
         btnsFeedback[1].gameObject.SetActive(true);
+    }
+
+    public void ResetUI()
+    {
+        txtFeedbackAnswers.gameObject.SetActive(false);
+        goodBadSprite.gameObject.SetActive(false);
+        btnsFeedback[0].gameObject.SetActive(false);
+        btnsFeedback[1].gameObject.SetActive(false);
     }
 
     //The method is called when the player choose an object or an answer

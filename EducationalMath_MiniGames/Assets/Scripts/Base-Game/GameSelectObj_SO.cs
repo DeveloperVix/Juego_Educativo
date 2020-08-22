@@ -13,6 +13,8 @@ public class GameSelectObj_SO : SO_BaseMiniGames
             MiniGame_Manager.Instance.numerator = fractionRand[0];
             MiniGame_Manager.Instance.denominator = fractionRand[1];
 
+            UI_Controller.Instance.fraction[0].gameObject.transform.parent.gameObject.SetActive(true);
+            UI_Controller.Instance.fraction[1].gameObject.transform.parent.gameObject.SetActive(true);
             UI_Controller.Instance.fraction[0].text = MiniGame_Manager.Instance.numerator.ToString();
             UI_Controller.Instance.fraction[1].text = MiniGame_Manager.Instance.denominator.ToString();
             UI_Controller.Instance.fraction[2].gameObject.transform.parent.gameObject.SetActive(false);
