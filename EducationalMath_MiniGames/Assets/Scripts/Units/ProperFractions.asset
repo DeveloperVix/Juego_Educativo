@@ -16,11 +16,6 @@ MonoBehaviour:
   unitPoints: 10
   spritesInstructionsMiniGame:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   textInstructionsMiniGames:
-  - "Una fracci\xF3n se llama propia si su numerador es menor que se denominador."
+  - "Una fracci\xF3n se llama <b>propia si su numerador es menor que se denominador</b>."
   difficultyLevel: 1

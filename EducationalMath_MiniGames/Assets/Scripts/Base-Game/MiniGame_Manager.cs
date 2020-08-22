@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum MiniGameState { Pause, Idle, Playing }
+public enum MiniGameState { Pause, Idle, Playing, Finish }
 
 public class MiniGame_Manager : MonoBehaviour
 {
@@ -57,41 +58,54 @@ public class MiniGame_Manager : MonoBehaviour
     private void Start()
     {
         AppManager.Instance.MiniGamesSequence();
-        SetMiniGame();
-
+        //SetMiniGame();
     }
 
-    //Call this method when the list of mini games is ready 
+    //Call this method when the list of mini games is ready also in the click button event "Next" on the UI
     public void SetMiniGame()
     {
         indexMiniGame++;
         if (indexMiniGame == miniGamesToPlay.Count)
         {
             Debug.LogError("Mini juegos terminados");
+            minigameState = MiniGameState.Finish;
+            StartCoroutine(ShowResults());
         }
         else
         {
             curMiniGame = miniGamesToPlay[indexMiniGame];
-            UI_Controller.Instance.ResetUI();
-
-            var objsGame = FindObjectsOfType<BaseObjInteractable>();
-            for (int i = 0; i < objsGame.Length; i++)
-            {
-                Destroy(objsGame[i].gameObject);
-            }
 
             curHits = 0;
             badAnswer = 0;
-
-            InitMiniGame += curMiniGame.InitGame;
-            InitMiniGame += curMiniGame.GenerateGameElement;
-
-            InitMiniGame(curUnit.unitFractionName);
-            InitMiniGame -= curMiniGame.InitGame;
-            InitMiniGame -= curMiniGame.GenerateGameElement;
-            UI_Controller.Instance.UpdateGoalGame();
-            minigameState = MiniGameState.Playing;
+            StartCoroutine(WaitMiniGame());
         }
+    }
+
+    IEnumerator ShowResults()
+    {
+        yield return new WaitForSeconds(1f);
+
+        UI_Controller.Instance.ShowResultsUnit("¡Bien hecho!, has completado la lección");
+    }
+
+    IEnumerator WaitMiniGame()
+    {
+        yield return new WaitForSeconds(0.6f);
+        UI_Controller.Instance.ResetUI();
+        var objsGame = FindObjectsOfType<BaseObjInteractable>();
+        for (int i = 0; i < objsGame.Length; i++)
+        {
+            Destroy(objsGame[i].gameObject);
+        }
+
+        InitMiniGame += curMiniGame.InitGame;
+        InitMiniGame += curMiniGame.GenerateGameElement;
+
+        InitMiniGame(curUnit.unitFractionName);
+        InitMiniGame -= curMiniGame.InitGame;
+        InitMiniGame -= curMiniGame.GenerateGameElement;
+        UI_Controller.Instance.UpdateGoalGame();
+        minigameState = MiniGameState.Playing;
     }
 
     public void MiniGameAtEnd()
@@ -101,7 +115,7 @@ public class MiniGame_Manager : MonoBehaviour
 
         for (int i = 0; i < miniGamesToPlay.Count; i++)
         {
-            if(miniGamesToPlay[i].name == curMiniGame.name)
+            if (miniGamesToPlay[i].name == curMiniGame.name)
             {
                 miniGamesToPlay.RemoveAt(i);
             }

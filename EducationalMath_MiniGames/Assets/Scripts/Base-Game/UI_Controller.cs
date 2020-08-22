@@ -7,8 +7,19 @@ using TMPro;
 public class UI_Controller : MonoBehaviour
 {
     private static UI_Controller instance;
-    public static UI_Controller Instance{get => instance;}
+    public static UI_Controller Instance { get => instance; }
 
+
+    [Header("Initial concept")]
+    public TextMeshProUGUI conceptUnitTxt;
+    public Image imgConcept;
+    int indexInfoUnit = 0;
+
+    [Header("Results")]
+    public GameObject backgroundResults;
+    public TextMeshProUGUI messageResult;
+
+    [Header("Mini Games Elements")]
     /*
      * 0 -> correct checkmark
      * 1 -> wrong cross
@@ -25,13 +36,32 @@ public class UI_Controller : MonoBehaviour
     public TextMeshProUGUI txtFeedbackAnswers;
     public TextMeshProUGUI txtGoalGame;
 
+    public Animator backgroundLoad;
+
     [Header("SelectObj Elements")]
     public TextMeshProUGUI[] fraction; //0 -> numerator, 1 -> denominator, 2 -> integer
 
-    // Start is called before the first frame update
     void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        SetInfoUnit();   
+    }
+
+    public void ShowResultsUnit(string theMessage)
+    {
+        messageResult.text = theMessage;
+        backgroundResults.SetActive(true);
+    }
+
+    public void SetInfoUnit()
+    {
+        conceptUnitTxt.text = MiniGame_Manager.Instance.curUnit.textInstructionsMiniGames[indexInfoUnit];
+        imgConcept.sprite = MiniGame_Manager.Instance.curUnit.spritesInstructionsMiniGame[indexInfoUnit];
+        indexInfoUnit++;
     }
 
     public void UpdateGoalGame()
@@ -94,6 +124,25 @@ public class UI_Controller : MonoBehaviour
         btnsFeedback[1].gameObject.SetActive(false);
     }
 
+    public void LoadNextMiniGame()
+    {
+        StartCoroutine(LoadMiniGame());
+    }
+
+    IEnumerator LoadMiniGame()
+    {
+        if (MiniGame_Manager.Instance.minigameState == MiniGameState.Finish)
+        {
+            backgroundLoad.Play("LoadMiniGame_Enter");
+        }
+        else
+        {
+            backgroundLoad.Play("LoadMiniGame_Enter");
+            yield return new WaitForSeconds(0.5f);
+            backgroundLoad.Play("LoadMiniGame_Exit");
+        }
+    }
+
     //The method is called when the player choose an object or an answer
     public void UpdateGameCondition()
     {
@@ -115,7 +164,7 @@ public class UI_Controller : MonoBehaviour
         {
             MiniGame_Manager.Instance.badAnswer++;
         }
-        
+
         if (!btnsFeedback[0].gameObject.activeInHierarchy)
         {
             btnsFeedback[0].gameObject.SetActive(true); //btn check answer
@@ -142,7 +191,7 @@ public class UI_Controller : MonoBehaviour
         else
         {
             MiniGame_Manager.Instance.badAnswer--;
-            if(MiniGame_Manager.Instance.badAnswer <= 0)
+            if (MiniGame_Manager.Instance.badAnswer <= 0)
             {
                 MiniGame_Manager.Instance.badAnswer = 0;
             }

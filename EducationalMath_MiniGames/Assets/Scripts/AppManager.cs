@@ -31,7 +31,6 @@ public class AppManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
     }
 
     public void MiniGamesSequence()
