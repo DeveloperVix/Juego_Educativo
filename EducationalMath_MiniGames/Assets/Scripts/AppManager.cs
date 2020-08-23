@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AppManager : MonoBehaviour
 {
@@ -54,5 +55,18 @@ public class AppManager : MonoBehaviour
             }
         }
         MiniGame_Manager.Instance.curUnit = unitSelected;
+    }
+
+    
+    public IEnumerator LoadTheScene(int index)
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        AsyncOperation async = SceneManager.LoadSceneAsync(index);
+
+        while(!async.isDone)
+        {
+            yield return null;
+        }
     }
 }

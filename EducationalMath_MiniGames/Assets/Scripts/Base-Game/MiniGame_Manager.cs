@@ -61,6 +61,11 @@ public class MiniGame_Manager : MonoBehaviour
         //SetMiniGame();
     }
 
+    public void LoadThisScene(int index)
+    {
+        StartCoroutine(AppManager.Instance.LoadTheScene(index));
+    }
+
     //Call this method when the list of mini games is ready also in the click button event "Next" on the UI
     public void SetMiniGame()
     {
