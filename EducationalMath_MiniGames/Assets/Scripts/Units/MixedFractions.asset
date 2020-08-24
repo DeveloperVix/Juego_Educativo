@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54b066198a505d744a65fc14b90f5dda, type: 3}
-  m_Name: ImproperFractions
+  m_Name: MixedFractions
   m_EditorClassIdentifier: 
-  unitFractionName: 3
+  unitFractionName: 4
   unitPoints: 10
   spritesInstructionsMiniGame:
   - {fileID: 0}
   textInstructionsMiniGames:
-  - "Una <b>fracci\xF3n impropia</b> es cuando su <b>numerador es mayor que su denominador</b>."
-  difficultyLevel: 1
+  - "Una <b>fracci\xF3n mixta</b> es la combinaci\xF3n de <b>un n\xFAmero entero
+    y una fracci\xF3n</b>."
+  difficultyLevel: 0

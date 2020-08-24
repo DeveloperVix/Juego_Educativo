@@ -11,14 +11,11 @@ public class GameSelectFractions : SO_BaseMiniGames
     public override void InitGame(TypeUnitFractions curUnit)
     {
         Debug.Log("Set Conditions");
-        if (curUnit == TypeUnitFractions.ProperFractions)
+        totalFractionsToSelect = Random.Range(1, 7);
+        MiniGame_Manager.Instance.totalHits = totalFractionsToSelect;
+        for (int i = 0; i < UI_Controller.Instance.fraction.Length; i++)
         {
-            totalFractionsToSelect = Random.Range(1, 7);
-            MiniGame_Manager.Instance.totalHits = totalFractionsToSelect;
-            for (int i = 0; i < UI_Controller.Instance.fraction.Length; i++)
-            {
-                UI_Controller.Instance.fraction[i].gameObject.transform.parent.gameObject.SetActive(false);
-            }
+            UI_Controller.Instance.fraction[i].gameObject.transform.parent.gameObject.SetActive(false);
         }
     }
     public override void GenerateGameElement(TypeUnitFractions curUnit)
@@ -44,52 +41,61 @@ public class GameSelectFractions : SO_BaseMiniGames
             }
         }
 
-        if (curUnit == TypeUnitFractions.ProperFractions)
+        float posX = MiniGame_Manager.Instance.width - 2f;
+        //E.J. if widht is 10, on coordinates is -5 to 5, divide, -4 is the offset 
+        float posY = (MiniGame_Manager.Instance.height / 2f) - 3.5f;
+
+        Vector3 fractionPos = new Vector3(posX, posY, 0);
+        int indexPosFraction = 0;
+        
+        TypeUnitFractions otherFraction1 = TypeUnitFractions.ImproperFractions;
+        TypeUnitFractions otherFraction2 = TypeUnitFractions.MixedFractions;
+
+        if (curUnit == TypeUnitFractions.ImproperFractions)
         {
-            float posX = MiniGame_Manager.Instance.width - 2f;
-            //E.J. if widht is 10, on coordinates is -5 to 5, divide, -4 is the offset 
-            float posY = (MiniGame_Manager.Instance.height / 2f) - 3.5f;
+            otherFraction1 = TypeUnitFractions.ProperFractions;
+        }
+        else if(curUnit == TypeUnitFractions.MixedFractions)
+        {
+            otherFraction2 = TypeUnitFractions.ProperFractions;
+        }
 
-            Vector3 fractionPos = new Vector3(posX, posY, 0);
-            int indexPosFraction = 0;
-
-            for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 2; i++)
+        {
+            for (int y = 0; y < 3; y++)
             {
-                for (int y = 0; y < 3; y++)
+                curFractionG = Instantiate(objPrefab[0], fractionPos, Quaternion.identity);
+                if (posFraction[indexPosFraction])
                 {
-                    curFractionG = Instantiate(objPrefab[0], fractionPos, Quaternion.identity);
-                    if (posFraction[indexPosFraction])
+                    fractionRand = GenerateFraction(curUnit);
+                    curFractionG.GetComponent<FractionInteractable>().typeFractionToSelect = curUnit;
+                }
+                else
+                {
+                    Debug.Log("Fracción aleatoria");
+                    int setRandF = Random.Range(1, 20);
+                    if (setRandF <= 10)
                     {
-                        fractionRand = GenerateFraction(curUnit);
-                        curFractionG.GetComponent<FractionInteractable>().typeFractionToSelect = curUnit;
+                        fractionRand = GenerateFraction(otherFraction1);
+                        curFractionG.GetComponent<FractionInteractable>().typeFractionToSelect = otherFraction1;
                     }
                     else
                     {
-                        Debug.Log("Fracción aleatoria");
-                        int setRandF = Random.Range(1, 20);
-                        if (setRandF <= 10)
-                        {
-                            fractionRand = GenerateFraction(TypeUnitFractions.ImproperFractions);
-                            curFractionG.GetComponent<FractionInteractable>().typeFractionToSelect = TypeUnitFractions.ImproperFractions;
-                        }
-                        else
-                        {
-                            fractionRand = GenerateFraction(TypeUnitFractions.MixedFractions);
-                            curFractionG.GetComponent<FractionInteractable>().typeFractionToSelect = TypeUnitFractions.MixedFractions;
-                        }
+                        fractionRand = GenerateFraction(otherFraction2);
+                        curFractionG.GetComponent<FractionInteractable>().typeFractionToSelect = otherFraction2;
                     }
-
-                    curFractionG.GetComponent<FractionInteractable>().SetFractionTxt(fractionRand[2], fractionRand[0], fractionRand[1]);
-                    posX -= 5;
-                    fractionPos.x = posX;
-                    indexPosFraction++;
                 }
-                posX = MiniGame_Manager.Instance.width - 2f;
+
+                curFractionG.GetComponent<FractionInteractable>().SetFractionTxt(fractionRand[2], fractionRand[0], fractionRand[1]);
+                posX -= 5;
                 fractionPos.x = posX;
-                posY -= 3f;
-                fractionPos.y = posY;
+                indexPosFraction++;
             }
-            curFractionG = null;
+            posX = MiniGame_Manager.Instance.width - 2f;
+            fractionPos.x = posX;
+            posY -= 3f;
+            fractionPos.y = posY;
         }
+        curFractionG = null;
     }
 }

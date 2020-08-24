@@ -17,5 +17,5 @@ MonoBehaviour:
   spritesInstructionsMiniGame:
   - {fileID: 0}
   textInstructionsMiniGames:
-  - "Una fracci\xF3n se llama <b>propia si su numerador es menor que su denominador</b>."
+  - "Una <b>fracci\xF3n propia</b> es cuando su <b>numerador es menor que su denominador</b>."
   difficultyLevel: 1
