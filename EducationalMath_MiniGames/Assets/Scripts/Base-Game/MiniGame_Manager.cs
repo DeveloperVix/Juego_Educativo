@@ -72,7 +72,7 @@ public class MiniGame_Manager : MonoBehaviour
         indexMiniGame++;
         if (indexMiniGame == miniGamesToPlay.Count)
         {
-            Debug.LogError("Mini juegos terminados");
+//            Debug.LogError("Mini juegos terminados");
             minigameState = MiniGameState.Finish;
             StartCoroutine(ShowResults());
         }
@@ -97,7 +97,7 @@ public class MiniGame_Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.6f);
         UI_Controller.Instance.ResetUI();
-        var objsGame = FindObjectsOfType<BaseObjInteractable>();
+        var objsGame = GameObject.FindGameObjectsWithTag("ObjInteractable");
         for (int i = 0; i < objsGame.Length; i++)
         {
             Destroy(objsGame[i].gameObject);

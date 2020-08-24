@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 2911578740446910556}
   m_Layer: 0
   m_Name: Rule_Part
-  m_TagString: Untagged
+  m_TagString: ObjInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

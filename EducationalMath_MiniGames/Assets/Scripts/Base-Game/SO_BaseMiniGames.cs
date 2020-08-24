@@ -61,7 +61,7 @@ public abstract class SO_BaseMiniGames : ScriptableObject
                         ready = true;
                     }
                 }
-                integer = UnityEngine.Random.Range(1, 11);
+                integer = UnityEngine.Random.Range(1, 6);
                 fractionRand[0] = numerator;
                 fractionRand[1] = denominator;
                 fractionRand[2] = integer;

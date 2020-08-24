@@ -7,7 +7,9 @@ public class BaseObjInteractable : MonoBehaviour
 
     public virtual void OnMouseDown() 
     {
-        Debug.Log("Tap en :" + gameObject.name);
+        if(MiniGame_Manager.Instance.minigameState != MiniGameState.Playing)
+            return;
+        //Debug.Log("Tap en :" + gameObject.name);
         if(!selected)
         {
             imgStatus.color = Color.red;

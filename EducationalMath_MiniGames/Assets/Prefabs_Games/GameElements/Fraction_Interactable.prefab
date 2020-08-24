@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 2290939454676103598}
   m_Layer: 0
   m_Name: Fraction_Interactable
-  m_TagString: Untagged
+  m_TagString: ObjInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
