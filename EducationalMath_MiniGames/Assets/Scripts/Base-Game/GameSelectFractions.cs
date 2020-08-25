@@ -10,7 +10,7 @@ public class GameSelectFractions : SO_BaseMiniGames
 
     public override void InitGame(TypeUnitFractions curUnit)
     {
-        Debug.Log("Set Conditions");
+        //Debug.Log("Set Conditions");
         totalFractionsToSelect = Random.Range(1, 7);
         MiniGame_Manager.Instance.totalHits = totalFractionsToSelect;
         for (int i = 0; i < UI_Controller.Instance.fraction.Length; i++)
@@ -20,7 +20,7 @@ public class GameSelectFractions : SO_BaseMiniGames
     }
     public override void GenerateGameElement(TypeUnitFractions curUnit)
     {
-        Debug.Log("Elements mini game");
+        //Debug.Log("Elements mini game");
         int[] fractionRand = new int[3];
         GameObject curFractionG;
         posFraction = new bool[6];
