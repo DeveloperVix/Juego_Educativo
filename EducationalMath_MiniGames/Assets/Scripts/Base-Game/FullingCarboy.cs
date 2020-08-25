@@ -10,10 +10,10 @@ public class FullingCarboy : MonoBehaviour
     public int curTaps = 0;
     public bool full = false;
 
-    public void SetCarboy(int denominator, int totalTaps)
+    public void SetCarboy(int denominator)
     {
         valueTap = 0.95f / (float)denominator;
-        maxTaps = totalTaps;
+        maxTaps = denominator;
     }
 
     public void OnMouseDown()
