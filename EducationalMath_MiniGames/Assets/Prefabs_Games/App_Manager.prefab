@@ -51,3 +51,4 @@ MonoBehaviour:
   miniGames:
   - {fileID: 11400000, guid: 6b43a0c6c5dbb104da4956df26dfb8b6, type: 2}
   - {fileID: 11400000, guid: 8a35aef9bb5ab0e41ae2a270df8fb779, type: 2}
+  - {fileID: 11400000, guid: 61d8f0ba7026ef548b8fac9f651037f3, type: 2}

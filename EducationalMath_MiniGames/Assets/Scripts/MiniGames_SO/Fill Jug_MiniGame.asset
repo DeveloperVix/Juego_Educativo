@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f3c8e12833ba541ab8245596c2e42b, type: 3}
   m_Name: Fill Jug_MiniGame
   m_EditorClassIdentifier: 
-  listed: 0
+  listed: 1
   completed: 0
   goalGame:
   - "Llena el garraf\xF3n en base a la fracci\xF3n"
+  - "Llena los garraf\xF3nes en base a la fracci\xF3n"
+  - "Llena los garraf\xF3nes en base a la fracci\xF3n"
   objPrefab:
   - {fileID: 7270426943876708935, guid: a1df32cb976e0904e82b906dac78c373, type: 3}
   miniGameFuncitions: {fileID: 11400000, guid: 6b43a0c6c5dbb104da4956df26dfb8b6, type: 2}

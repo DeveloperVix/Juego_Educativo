@@ -13,24 +13,24 @@ public class GameFillJug_SO : SO_BaseMiniGames
 
     public override void GenerateGameElement(TypeUnitFractions curUnit)
     {
-        if(curUnit == TypeUnitFractions.ProperFractions)
+        if (curUnit == TypeUnitFractions.ProperFractions)
         {
             int posX = 0;
             int posY = -1;
             Vector3 objPartPosition = new Vector3(posX, posY, 0);
             GameObject newJug = Instantiate(objPrefab[0], objPartPosition, Quaternion.identity);
-            newJug.GetComponent<FullingCarboy>().SetCarboy(MiniGame_Manager.Instance.denominator);
+            newJug.GetComponent<FullingCarboy>().SetCarboy(MiniGame_Manager.Instance.denominator, true, true);
             newJug = null;
         }
-        else if(curUnit == TypeUnitFractions.ImproperFractions || curUnit == TypeUnitFractions.MixedFractions)
+        else if (curUnit == TypeUnitFractions.ImproperFractions || curUnit == TypeUnitFractions.MixedFractions)
         {
-            float posX = (MiniGame_Manager.Instance.width + 0.15f) * -1;
-            int posY = 0;
+            float posX = 0f;
+            int posY = -1;
             Vector3 objPartPosition = new Vector3(posX, posY, 0);
 
             GameObject tempJug;
             float totalFigures = 0;
-            if(curUnit == TypeUnitFractions.ImproperFractions)
+            if (curUnit == TypeUnitFractions.ImproperFractions)
             {
                 totalFigures = ((float)MiniGame_Manager.Instance.numerator / (float)MiniGame_Manager.Instance.denominator);
             }
@@ -39,13 +39,42 @@ public class GameFillJug_SO : SO_BaseMiniGames
                 totalFigures = (MiniGame_Manager.Instance.integer + ((float)MiniGame_Manager.Instance.numerator / (float)MiniGame_Manager.Instance.denominator));
             }
             totalFigures = (float)(Math.Ceiling(totalFigures));
-
-            for (int i = 0; i < totalFigures; i++)
+            bool right = false;
+            if ((totalFigures % 2) == 0)
             {
-                tempJug = Instantiate(objPrefab[0], objPartPosition, Quaternion.identity);
-                tempJug.GetComponent<FullingCarboy>().SetCarboy(MiniGame_Manager.Instance.denominator);
-                posX += 3.0f;
-                objPartPosition.x = posX;
+                posX = 1.5f;
+                right = false;
+            }
+            else
+                right = true;
+            objPartPosition.x = posX;
+            tempJug = Instantiate(objPrefab[0], objPartPosition, Quaternion.identity);
+            tempJug.GetComponent<FullingCarboy>().SetCarboy(MiniGame_Manager.Instance.denominator, true, false);
+            bool showTapEmpty = false;
+            for (int i = 0; i < totalFigures - 1; i++)
+            {
+                if(i == totalFigures-2)
+                {
+                    showTapEmpty = true;
+                }
+
+                if (right)
+                {
+                    posX += 3.0f;
+                    objPartPosition.x = posX;
+                    tempJug = Instantiate(objPrefab[0], objPartPosition, Quaternion.identity);
+                    tempJug.GetComponent<FullingCarboy>().SetCarboy(MiniGame_Manager.Instance.denominator, false, showTapEmpty);
+                    right = false;
+                }
+                else
+                {
+                    posX *= -1;
+                    objPartPosition.x = posX;
+                    tempJug = Instantiate(objPrefab[0], objPartPosition, Quaternion.identity);
+                    tempJug.GetComponent<FullingCarboy>().SetCarboy(MiniGame_Manager.Instance.denominator, false, showTapEmpty);
+                    posX *= -1;
+                    right = true;
+                }
             }
         }
     }

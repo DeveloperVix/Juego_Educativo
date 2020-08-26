@@ -9,11 +9,33 @@ public class FullingCarboy : MonoBehaviour
     public int maxTaps = 0;
     public int curTaps = 0;
     public bool full = false;
+    
+    [Header("Taps")]
+    public GameObject tapToFill;
+    public GameObject tapToEmpty;
 
-    public void SetCarboy(int denominator)
+    public void SetCarboy(int denominator, bool showTapFill, bool showTapEmpty)
     {
         valueTap = 0.95f / (float)denominator;
         maxTaps = denominator;
+
+        if(showTapFill)
+        {
+            tapToFill.SetActive(true);
+        }
+        
+        if(showTapEmpty)
+        {
+            tapToEmpty.SetActive(true);
+        }
+        StartCoroutine(HideInstruction());
+    }
+
+    IEnumerator HideInstruction()
+    {
+        yield return new WaitForSeconds(4f);
+        tapToFill.SetActive(false);
+        tapToEmpty.SetActive(false);
     }
 
     public void OnMouseDown()
@@ -28,7 +50,7 @@ public class FullingCarboy : MonoBehaviour
             water.localScale = newScale;
             UI_Controller.Instance.UpdateGameCondition();
             curTaps++;
-            if(curTaps == maxTaps)
+            if (curTaps == maxTaps)
             {
                 full = true;
             }
@@ -40,17 +62,20 @@ public class FullingCarboy : MonoBehaviour
         if (MiniGame_Manager.Instance.minigameState != MiniGameState.Playing)
             return;
 
-        var newScale = water.localScale;
-        newScale.y -= valueTap; 
-        UI_Controller.Instance.ChangeAnswerMiniGame();
-        curTaps--;
-        full = false;
-        if(curTaps <= 0)
-            curTaps = 0;
-        if(newScale.y <= 0)
+        if (curTaps > 0)
         {
-            newScale.y = 0f;
+            var newScale = water.localScale;
+            newScale.y -= valueTap;
+            UI_Controller.Instance.ChangeAnswerMiniGame();
+            curTaps--;
+            full = false;
+            if (curTaps <= 0)
+                curTaps = 0;
+            if (newScale.y <= 0)
+            {
+                newScale.y = 0f;
+            }
+            water.localScale = newScale;
         }
-        water.localScale = newScale;
     }
 }
