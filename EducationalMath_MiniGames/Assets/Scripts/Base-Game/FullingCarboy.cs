@@ -14,10 +14,23 @@ public class FullingCarboy : MonoBehaviour
     public GameObject tapToFill;
     public GameObject tapToEmpty;
 
+    [Header("Marker")]
+    public GameObject markerJug;
+
     public void SetCarboy(int denominator, bool showTapFill, bool showTapEmpty)
     {
         valueTap = 0.95f / (float)denominator;
         maxTaps = denominator;
+        for (int i = 0; i < maxTaps; i++)
+        {
+            GameObject newMarker = Instantiate(markerJug, transform.position, Quaternion.identity);
+            newMarker.transform.SetParent(transform);
+            newMarker.transform.localScale = new Vector3(2.049798f,0f,0f);
+            var newScale = newMarker.transform.localScale;
+            newScale.y += valueTap*2;
+            newMarker.transform.localScale = newScale;
+            newMarker.transform.localPosition = new Vector3(0f,valueTap * i,0f);
+        }
 
         if(showTapFill)
         {

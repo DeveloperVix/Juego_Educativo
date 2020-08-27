@@ -811,6 +811,8 @@ MonoBehaviour:
   full: 0
   tapToFill: {fileID: 28241549}
   tapToEmpty: {fileID: 1070520706}
+  markerJug: {fileID: 7021782358085353224, guid: 15fd24464f1e2154c9d1d78e120165b6,
+    type: 3}
 --- !u!1 &7270426943921030061
 GameObject:
   m_ObjectHideFlags: 0
