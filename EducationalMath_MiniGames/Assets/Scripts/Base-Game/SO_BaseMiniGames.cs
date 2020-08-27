@@ -29,7 +29,8 @@ public abstract class SO_BaseMiniGames : ScriptableObject
                     denominator = UnityEngine.Random.Range(2, 11);
                     if (numerator < denominator)
                     {
-                        ready = true;
+                        if(numerator != denominator)
+                            ready = true;
                     }
                 }
                 fractionRand[0] = numerator;
@@ -44,7 +45,8 @@ public abstract class SO_BaseMiniGames : ScriptableObject
                     denominator = UnityEngine.Random.Range(2, 11);
                     if (numerator > denominator)
                     {
-                        ready = true;
+                        if(numerator != denominator)
+                            ready = true;
                     }
                 }
                 fractionRand[0] = numerator;
@@ -52,13 +54,15 @@ public abstract class SO_BaseMiniGames : ScriptableObject
                 fractionRand[2] = 0;
                 break;
             case TypeUnitFractions.MixedFractions:
+            Debug.Log("coloco fraccion mixta");
                 while (!ready)
                 {
                     numerator = UnityEngine.Random.Range(1, 11);
                     denominator = UnityEngine.Random.Range(2, 11);
                     if (numerator < denominator)
                     {
-                        ready = true;
+                        if(numerator != denominator)
+                            ready = true;
                     }
                 }
                 integer = UnityEngine.Random.Range(1, 6);

@@ -2,6 +2,7 @@
 
 public class BaseObjInteractable : MonoBehaviour
 {
+    public bool isInteractable = true;
     public bool selected = false;
     public SpriteRenderer imgStatus;
 
@@ -10,6 +11,9 @@ public class BaseObjInteractable : MonoBehaviour
         if(MiniGame_Manager.Instance.minigameState != MiniGameState.Playing)
             return;
         //Debug.Log("Tap en :" + gameObject.name);
+        if(!isInteractable)
+            return;
+
         if(!selected)
         {
             imgStatus.color = Color.red;
@@ -21,6 +25,15 @@ public class BaseObjInteractable : MonoBehaviour
             imgStatus.color = Color.white;
             UI_Controller.Instance.ChangeAnswerMiniGame();
             selected = false;
+        }
+    }
+
+    public virtual void SetObjNotInteractable(bool selected)
+    {
+        isInteractable = false;
+        if(selected)
+        {
+            imgStatus.color = Color.red;
         }
     }
 }

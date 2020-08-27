@@ -9,6 +9,7 @@ public class GameSelectObj_SO : SO_BaseMiniGames
 //        Debug.Log("Set Conditions");
         int[] fractionRand = new int[3];
         fractionRand = GenerateFraction(curUnit);
+        UI_Controller.Instance.inputfraction.SetActive(false);
         if (curUnit == TypeUnitFractions.ProperFractions || curUnit == TypeUnitFractions.ImproperFractions)
         {
             MiniGame_Manager.Instance.numerator = fractionRand[0];
@@ -110,7 +111,7 @@ public class GameSelectObj_SO : SO_BaseMiniGames
                     {
                         tempFigure = Instantiate(objPrefab[1], objPartPosition, Quaternion.identity);
                         //Decirle al objeto cuantas piezas activas
-                        tempFigure.GetComponent<FigureManager>().SetFigure(MiniGame_Manager.Instance.denominator);
+                        tempFigure.GetComponent<FigureManager>().SetFigure(MiniGame_Manager.Instance.denominator, true, 0);
                         countFigures--;
                         if (totalFigures == 2)
                             x = 3;

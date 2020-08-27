@@ -500,8 +500,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Fracciones mixtas
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2c6c0aaa394975e439b0930f2b730770, type: 2}
-  m_sharedMaterial: {fileID: -7185178361462283923, guid: 2c6c0aaa394975e439b0930f2b730770,
+  m_fontAsset: {fileID: 11400000, guid: 4f3996f3c76ed084dace97bde56c41db, type: 2}
+  m_sharedMaterial: {fileID: 6849617083783264130, guid: 4f3996f3c76ed084dace97bde56c41db,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1395,8 +1395,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Fracciones impropias
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2c6c0aaa394975e439b0930f2b730770, type: 2}
-  m_sharedMaterial: {fileID: -7185178361462283923, guid: 2c6c0aaa394975e439b0930f2b730770,
+  m_fontAsset: {fileID: 11400000, guid: 4f3996f3c76ed084dace97bde56c41db, type: 2}
+  m_sharedMaterial: {fileID: 6849617083783264130, guid: 4f3996f3c76ed084dace97bde56c41db,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1771,8 +1771,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 678176018}
   m_HandleRect: {fileID: 678176017}
   m_Direction: 0
-  m_Value: -0.00000015088239
-  m_Size: 0.7034609
+  m_Value: 0.00000015088223
+  m_Size: 0.7036536
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2618,8 +2618,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Identifiaci\xF3n de fracciones"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2c6c0aaa394975e439b0930f2b730770, type: 2}
-  m_sharedMaterial: {fileID: -7185178361462283923, guid: 2c6c0aaa394975e439b0930f2b730770,
+  m_fontAsset: {fileID: 11400000, guid: 4f3996f3c76ed084dace97bde56c41db, type: 2}
+  m_sharedMaterial: {fileID: 6849617083783264130, guid: 4f3996f3c76ed084dace97bde56c41db,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3133,8 +3133,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Elementos de la fracci\xF3n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2c6c0aaa394975e439b0930f2b730770, type: 2}
-  m_sharedMaterial: {fileID: -7185178361462283923, guid: 2c6c0aaa394975e439b0930f2b730770,
+  m_fontAsset: {fileID: 11400000, guid: 4f3996f3c76ed084dace97bde56c41db, type: 2}
+  m_sharedMaterial: {fileID: 6849617083783264130, guid: 4f3996f3c76ed084dace97bde56c41db,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3310,8 +3310,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Fracciones propias
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2c6c0aaa394975e439b0930f2b730770, type: 2}
-  m_sharedMaterial: {fileID: -7185178361462283923, guid: 2c6c0aaa394975e439b0930f2b730770,
+  m_fontAsset: {fileID: 11400000, guid: 4f3996f3c76ed084dace97bde56c41db, type: 2}
+  m_sharedMaterial: {fileID: 6849617083783264130, guid: 4f3996f3c76ed084dace97bde56c41db,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

@@ -41,6 +41,10 @@ public class UI_Controller : MonoBehaviour
     [Header("SelectObj Elements")]
     public TextMeshProUGUI[] fraction; //0 -> numerator, 1 -> denominator, 2 -> integer
 
+    [Header("Input fraction")]
+    public GameObject inputfraction;
+    public TMP_InputField[] inputFractionUI; //0 -> numerator, 1 -> denominator, 2 -> Integer
+
     void Awake()
     {
         instance = this;
@@ -48,7 +52,7 @@ public class UI_Controller : MonoBehaviour
 
     private void Start()
     {
-        SetInfoUnit();   
+        SetInfoUnit();
     }
 
     public void ShowResultsUnit(string theMessage)
@@ -85,6 +89,14 @@ public class UI_Controller : MonoBehaviour
         {
             txtGoalGame.text = MiniGame_Manager.Instance.curMiniGame.goalGame[0];
         }
+
+        if(inputfraction.activeInHierarchy)
+        {
+            for (int i = 0; i < inputFractionUI.Length; i++)
+            {
+                inputFractionUI[i].interactable = true;
+            }
+        }
     }
 
     public void CheckAnswer()
@@ -114,6 +126,13 @@ public class UI_Controller : MonoBehaviour
         goodBadSprite.gameObject.SetActive(true);
         MiniGame_Manager.Instance.minigameState = MiniGameState.Idle;
         btnsFeedback[1].gameObject.SetActive(true);
+        if(inputfraction.activeInHierarchy)
+        {
+            for (int i = 0; i < inputFractionUI.Length; i++)
+            {
+                inputFractionUI[i].interactable = false;
+            }
+        }
     }
 
     public void ResetUI()
@@ -196,5 +215,58 @@ public class UI_Controller : MonoBehaviour
                 MiniGame_Manager.Instance.badAnswer = 0;
             }
         }
+    }
+
+    public void InputFraction(int index)
+    {
+        int answerInput = 0;
+        bool isNumeric = int.TryParse(inputFractionUI[index].text, out answerInput);
+        if (isNumeric)
+        {
+            //Debug.Log("Es un número");
+            switch (index)
+            {
+                case 0:
+                    if (answerInput == MiniGame_Manager.Instance.numerator)
+                    {
+                        UpdateGameCondition();
+                    }
+                    else
+                    {
+                        ChangeAnswerMiniGame();
+                    }
+                    break;
+                case 1:
+                    if (answerInput == MiniGame_Manager.Instance.denominator)
+                    {
+                        UpdateGameCondition();
+                    }
+                    else
+                    {
+                        ChangeAnswerMiniGame();
+                    }
+                    break;
+                case 2:
+                    if (answerInput == MiniGame_Manager.Instance.integer)
+                    {
+                        UpdateGameCondition();
+                    }
+                    else
+                    {
+                        ChangeAnswerMiniGame();
+                    }
+                    break;
+            }
+            if (!btnsFeedback[0].gameObject.activeInHierarchy)
+            {
+                btnsFeedback[0].gameObject.SetActive(true); //btn check answer
+            }
+        }
+        else
+        {
+            //Debug.LogError("No es un número");
+            btnsFeedback[0].gameObject.SetActive(false); //btn check answer
+        }
+
     }
 }
