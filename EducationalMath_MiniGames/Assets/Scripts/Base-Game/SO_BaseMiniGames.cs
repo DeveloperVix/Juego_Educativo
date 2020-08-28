@@ -12,7 +12,7 @@ public abstract class SO_BaseMiniGames : ScriptableObject
 
     public abstract void GenerateGameElement(TypeUnitFractions curUnit);
 
-    public int[] GenerateFraction(TypeUnitFractions curUnit)
+    public int[] GenerateFraction(TypeUnitFractions curUnit, int maxNumber)
     {
         bool ready = false;
         int[] fractionRand = new int[3];
@@ -25,8 +25,8 @@ public abstract class SO_BaseMiniGames : ScriptableObject
                 //Proper fraction if the numerator is < than the denominator
                 while (!ready)
                 {
-                    numerator = UnityEngine.Random.Range(1, 11);
-                    denominator = UnityEngine.Random.Range(2, 11);
+                    numerator = UnityEngine.Random.Range(1, maxNumber);
+                    denominator = UnityEngine.Random.Range(2, maxNumber);
                     if (numerator < denominator)
                     {
                         if(numerator != denominator)
@@ -41,8 +41,8 @@ public abstract class SO_BaseMiniGames : ScriptableObject
                 //Iroper fraction if the numerator is > than the denominator
                 while (!ready)
                 {
-                    numerator = UnityEngine.Random.Range(3, 11);
-                    denominator = UnityEngine.Random.Range(2, 11);
+                    numerator = UnityEngine.Random.Range(3, maxNumber);
+                    denominator = UnityEngine.Random.Range(2, maxNumber);
                     if (numerator > denominator)
                     {
                         if(numerator != denominator)
@@ -57,8 +57,8 @@ public abstract class SO_BaseMiniGames : ScriptableObject
             Debug.Log("coloco fraccion mixta");
                 while (!ready)
                 {
-                    numerator = UnityEngine.Random.Range(1, 11);
-                    denominator = UnityEngine.Random.Range(2, 11);
+                    numerator = UnityEngine.Random.Range(1, maxNumber);
+                    denominator = UnityEngine.Random.Range(2, maxNumber);
                     if (numerator < denominator)
                     {
                         if(numerator != denominator)

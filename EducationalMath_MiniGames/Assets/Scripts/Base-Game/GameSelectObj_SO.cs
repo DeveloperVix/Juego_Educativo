@@ -8,7 +8,7 @@ public class GameSelectObj_SO : SO_BaseMiniGames
     {
 //        Debug.Log("Set Conditions");
         int[] fractionRand = new int[3];
-        fractionRand = GenerateFraction(curUnit);
+        fractionRand = GenerateFraction(curUnit, 11);
         UI_Controller.Instance.inputfraction.SetActive(false);
         if (curUnit == TypeUnitFractions.ProperFractions || curUnit == TypeUnitFractions.ImproperFractions)
         {

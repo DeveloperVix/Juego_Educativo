@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: db9e4a34e579c5845a895fb33c7c146f
+guid: 5bb53e8455f446548a3dd105499b9f36
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8565674176491013503
-    second: Plantilla_ProperFractions_1_0
+      213: -8610915804657034998
+    second: PieceseCircleFractions_0
   - first:
-      213: 1842977364536633755
-    second: Plantilla_ProperFractions_1_1
+      213: -4135006556480924488
+    second: PieceseCircleFractions_1
   - first:
-      213: 6297872827047271705
-    second: Plantilla_ProperFractions_1_2
+      213: 5111834268772358736
+    second: PieceseCircleFractions_2
   - first:
-      213: 3961304236951860188
-    second: HalfCircle
+      213: -8656565356352728007
+    second: PieceseCircleFractions_3
+  - first:
+      213: -6095019484083153430
+    second: PieceseCircleFractions_4
+  - first:
+      213: -4369530314854077759
+    second: PieceseCircleFractions_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -73,10 +79,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 3
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -85,10 +91,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 3
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,10 +103,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 3
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -111,64 +117,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Plantilla_ProperFractions_1_0
+      name: PieceseCircleFractions_0
       rect:
         serializedVersion: 2
-        x: 220
-        y: 2301
-        width: 2095
-        height: 1093
+        x: 26
+        y: 704
+        width: 462
+        height: 935
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f75cb77d7436fd670800000000000000
-      internalID: 8565674176491013503
+      spriteID: a09de90c2b1ef7880800000000000000
+      internalID: -8610915804657034998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plantilla_ProperFractions_1_1
+      name: PieceseCircleFractions_1
       rect:
         serializedVersion: 2
-        x: 223
-        y: 1179
-        width: 2095
-        height: 1090
+        x: 559
+        y: 887
+        width: 463
+        height: 697
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b99aa460622939910800000000000000
-      internalID: 1842977364536633755
+      spriteID: 8b41b01f1718d96c0800000000000000
+      internalID: -4135006556480924488
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plantilla_ProperFractions_1_2
+      name: PieceseCircleFractions_2
       rect:
         serializedVersion: 2
-        x: 223
-        y: 57
-        width: 2095
-        height: 1091
+        x: 1114
+        y: 943
+        width: 357
+        height: 456
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91ddcb8f7f9866750800000000000000
-      internalID: 6297872827047271705
+      spriteID: 05a58dc0f22e0f640800000000000000
+      internalID: 5111834268772358736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PieceseCircleFractions_3
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 88
+        width: 397
+        height: 458
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93494af3ca3bdd780800000000000000
+      internalID: -8656565356352728007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PieceseCircleFractions_4
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 105
+        width: 438
+        height: 461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae5932072142a6ba0800000000000000
+      internalID: -6095019484083153430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PieceseCircleFractions_5
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 152
+        width: 462
+        height: 463
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ca62d3545f4c53c0800000000000000
+      internalID: -4369530314854077759
       vertices: []
       indices: 
       edges: []

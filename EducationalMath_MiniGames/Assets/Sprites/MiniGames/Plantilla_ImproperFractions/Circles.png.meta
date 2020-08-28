@@ -1,19 +1,28 @@
 fileFormatVersion: 2
-guid: db9e4a34e579c5845a895fb33c7c146f
+guid: 00c76b348ff350d4cb4456776aa2a439
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8565674176491013503
-    second: Plantilla_ProperFractions_1_0
+      213: -2434568325419030468
+    second: Circles_2Pieces
   - first:
-      213: 1842977364536633755
-    second: Plantilla_ProperFractions_1_1
+      213: -3911128351369292997
+    second: Circle_5Pieces
   - first:
-      213: 6297872827047271705
-    second: Plantilla_ProperFractions_1_2
+      213: 2190485357215893546
+    second: Circles_3Pieces
   - first:
-      213: 3961304236951860188
-    second: HalfCircle
+      213: -3516616012245760874
+    second: Circles_6Pieces
+  - first:
+      213: -7698138948945539861
+    second: Circles_4
+  - first:
+      213: -5383671415335508278
+    second: Circles_4Pieces
+  - first:
+      213: 3373650586503469793
+    second: Circles_7Pieces
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -73,10 +82,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 3
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -85,10 +94,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 3
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,10 +106,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 3
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -111,13 +120,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Plantilla_ProperFractions_1_0
+      name: Circles_2Pieces
       rect:
         serializedVersion: 2
-        x: 220
-        y: 2301
-        width: 2095
-        height: 1093
+        x: 14
+        y: 2066
+        width: 968
+        height: 959
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f75cb77d7436fd670800000000000000
-      internalID: 8565674176491013503
+      spriteID: c382bf5c10da63ed0800000000000000
+      internalID: -2434568325419030468
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plantilla_ProperFractions_1_1
+      name: Circle_5Pieces
       rect:
         serializedVersion: 2
-        x: 223
-        y: 1179
-        width: 2095
-        height: 1090
+        x: 1051
+        y: 2066
+        width: 960
+        height: 959
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b99aa460622939910800000000000000
-      internalID: 1842977364536633755
+      spriteID: b339ca98c71e8b9c0800000000000000
+      internalID: -3911128351369292997
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plantilla_ProperFractions_1_2
+      name: Circles_3Pieces
       rect:
         serializedVersion: 2
-        x: 223
-        y: 57
-        width: 2095
-        height: 1091
+        x: 24
+        y: 1045
+        width: 959
+        height: 960
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,8 +176,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91ddcb8f7f9866750800000000000000
-      internalID: 6297872827047271705
+      spriteID: a284c82a3da266e10800000000000000
+      internalID: 2190485357215893546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circles_6Pieces
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 1027
+        width: 960
+        height: 960
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69404a26e58723fc0800000000000000
+      internalID: -3516616012245760874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circles_4Pieces
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 41
+        width: 956
+        height: 959
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac6a0852f5b5945b0800000000000000
+      internalID: -5383671415335508278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circles_7Pieces
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 43
+        width: 959
+        height: 961
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ead3d4855d91de20800000000000000
+      internalID: 3373650586503469793
       vertices: []
       indices: 
       edges: []

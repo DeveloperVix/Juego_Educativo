@@ -7,7 +7,7 @@ public class GameInputFraction_SO : SO_BaseMiniGames
     public override void InitGame(TypeUnitFractions curUnit)
     {
         int[] fractionRand = new int[3];
-        fractionRand = GenerateFraction(curUnit);
+        fractionRand = GenerateFraction(curUnit, 11);
 
         MiniGame_Manager.Instance.numerator = fractionRand[0];
         MiniGame_Manager.Instance.denominator = fractionRand[1];

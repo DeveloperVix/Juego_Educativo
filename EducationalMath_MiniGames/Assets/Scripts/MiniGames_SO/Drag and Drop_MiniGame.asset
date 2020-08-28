@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7df2eee7e902aa46ac42970de09aa88, type: 3}
+  m_Name: Drag and Drop_MiniGame
+  m_EditorClassIdentifier: 
+  listed: 1
+  completed: 0
+  goalGame:
+  - "Arrastra la fracci\xF3n propia que corresponda a la figura"
+  - "Arrastra la fracci\xF3n impropia que corresponda a la figura"
+  - "Arrastra la fracci\xF3n mixta que corresponda a la figura"
+  objPrefab:
+  - {fileID: 5551842101724460636, guid: 4911a094d6825354d8707164806985fc, type: 3}
+  - {fileID: 5551842101724460636, guid: 4911a094d6825354d8707164806985fc, type: 3}
+  circlePrefab:
+  - {fileID: 655042628645547051, guid: 952bd9ba67f547844824abf6f6e2194c, type: 3}
+  - {fileID: 7755845928239769692, guid: 243cac8fb6756404aa2ee2a6de751ea6, type: 3}
+  - {fileID: 4720237957215030704, guid: 196cb1dbd12e9604490373cdfaecffb2, type: 3}
+  - {fileID: 2220707828244623475, guid: bf890022e3d843844a770d6a765bff55, type: 3}
+  - {fileID: 7115932637156721303, guid: 911f30679ecc6be4ca346d56b4998c88, type: 3}
+  - {fileID: 114137360055248402, guid: 6c3898de200bef94184e33db28c378b3, type: 3}

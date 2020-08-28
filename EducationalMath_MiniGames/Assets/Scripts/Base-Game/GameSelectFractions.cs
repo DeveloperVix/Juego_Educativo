@@ -68,7 +68,7 @@ public class GameSelectFractions : SO_BaseMiniGames
                 curFractionG = Instantiate(objPrefab[0], fractionPos, Quaternion.identity);
                 if (posFraction[indexPosFraction])
                 {
-                    fractionRand = GenerateFraction(curUnit);
+                    fractionRand = GenerateFraction(curUnit, 11);
                     curFractionG.GetComponent<FractionInteractable>().typeFractionToSelect = curUnit;
                 }
                 else
@@ -77,17 +77,17 @@ public class GameSelectFractions : SO_BaseMiniGames
                     int setRandF = Random.Range(1, 20);
                     if (setRandF <= 10)
                     {
-                        fractionRand = GenerateFraction(otherFraction1);
+                        fractionRand = GenerateFraction(otherFraction1, 11);
                         curFractionG.GetComponent<FractionInteractable>().typeFractionToSelect = otherFraction1;
                     }
                     else
                     {
-                        fractionRand = GenerateFraction(otherFraction2);
+                        fractionRand = GenerateFraction(otherFraction2, 11);
                         curFractionG.GetComponent<FractionInteractable>().typeFractionToSelect = otherFraction2;
                     }
                 }
 
-                curFractionG.GetComponent<FractionInteractable>().SetFractionTxt(fractionRand[2], fractionRand[0], fractionRand[1]);
+                curFractionG.GetComponent<FractionInteractable>().SetFractionTxt(fractionRand[2], fractionRand[0], fractionRand[1], false);
                 posX -= 5;
                 fractionPos.x = posX;
                 indexPosFraction++;
