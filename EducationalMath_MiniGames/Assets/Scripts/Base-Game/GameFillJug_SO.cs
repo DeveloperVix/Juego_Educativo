@@ -5,10 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Mini Games/Fill Jug", fileName = "Fill Jug_MiniGame")]
 public class GameFillJug_SO : SO_BaseMiniGames
 {
-    public SO_BaseMiniGames miniGameFuncitions;
+    public SO_BaseMiniGames miniGameFunctions;
     public override void InitGame(TypeUnitFractions curUnit)
     {
-        miniGameFuncitions.InitGame(curUnit);
+        miniGameFunctions.InitGame(curUnit);
     }
 
     public override void GenerateGameElement(TypeUnitFractions curUnit)

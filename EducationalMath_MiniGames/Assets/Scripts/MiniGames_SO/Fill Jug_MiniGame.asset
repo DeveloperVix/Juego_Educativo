@@ -20,4 +20,4 @@ MonoBehaviour:
   - "Llena los garraf\xF3nes en base a la fracci\xF3n"
   objPrefab:
   - {fileID: 7270426943876708935, guid: a1df32cb976e0904e82b906dac78c373, type: 3}
-  miniGameFuncitions: {fileID: 11400000, guid: 6b43a0c6c5dbb104da4956df26dfb8b6, type: 2}
+  miniGameFunctions: {fileID: 11400000, guid: 6b43a0c6c5dbb104da4956df26dfb8b6, type: 2}
