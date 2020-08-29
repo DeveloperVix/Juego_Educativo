@@ -20,7 +20,6 @@ MonoBehaviour:
   - "Arrastra la fracci\xF3n mixta que corresponda a la figura"
   objPrefab:
   - {fileID: 5551842101724460636, guid: 4911a094d6825354d8707164806985fc, type: 3}
-  - {fileID: 5551842101724460636, guid: 4911a094d6825354d8707164806985fc, type: 3}
   circlePrefab:
   - {fileID: 655042628645547051, guid: 952bd9ba67f547844824abf6f6e2194c, type: 3}
   - {fileID: 7755845928239769692, guid: 243cac8fb6756404aa2ee2a6de751ea6, type: 3}

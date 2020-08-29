@@ -172,7 +172,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 5111834268772358736, guid: 5bb53e8455f446548a3dd105499b9f36,
     type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -254,7 +254,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 5111834268772358736, guid: 5bb53e8455f446548a3dd105499b9f36,
     type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -336,7 +336,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 5111834268772358736, guid: 5bb53e8455f446548a3dd105499b9f36,
     type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -418,7 +418,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 5111834268772358736, guid: 5bb53e8455f446548a3dd105499b9f36,
     type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -500,7 +500,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 5111834268772358736, guid: 5bb53e8455f446548a3dd105499b9f36,
     type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -582,7 +582,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 5111834268772358736, guid: 5bb53e8455f446548a3dd105499b9f36,
     type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -664,7 +664,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 5111834268772358736, guid: 5bb53e8455f446548a3dd105499b9f36,
     type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
