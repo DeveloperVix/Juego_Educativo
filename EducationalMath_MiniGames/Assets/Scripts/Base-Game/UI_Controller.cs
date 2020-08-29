@@ -9,7 +9,6 @@ public class UI_Controller : MonoBehaviour
     private static UI_Controller instance;
     public static UI_Controller Instance { get => instance; }
 
-
     [Header("Initial concept")]
     public TextMeshProUGUI conceptUnitTxt;
     public Image imgConcept;
@@ -34,9 +33,12 @@ public class UI_Controller : MonoBehaviour
     */
     public Button[] btnsFeedback;
     public TextMeshProUGUI txtFeedbackAnswers;
-    public TextMeshProUGUI txtGoalGame;
+    public TextMeshProUGUI txtGameInstrucion;
+    public TextMeshProUGUI txtGameGoal;
 
     public Animator backgroundLoad;
+
+    public Animator instructionsMiniGame;
 
     [Header("SelectObj Elements")]
     public TextMeshProUGUI[] fraction; //0 -> numerator, 1 -> denominator, 2 -> integer
@@ -75,20 +77,21 @@ public class UI_Controller : MonoBehaviour
             switch (MiniGame_Manager.Instance.curUnit.unitFractionName)
             {
                 case TypeUnitFractions.ProperFractions:
-                    txtGoalGame.text = MiniGame_Manager.Instance.curMiniGame.goalGame[0];
+                    txtGameInstrucion.text = MiniGame_Manager.Instance.curMiniGame.goalGame[0];
                     break;
                 case TypeUnitFractions.ImproperFractions:
-                    txtGoalGame.text = MiniGame_Manager.Instance.curMiniGame.goalGame[1];
+                    txtGameInstrucion.text = MiniGame_Manager.Instance.curMiniGame.goalGame[1];
                     break;
                 case TypeUnitFractions.MixedFractions:
-                    txtGoalGame.text = MiniGame_Manager.Instance.curMiniGame.goalGame[2];
+                    txtGameInstrucion.text = MiniGame_Manager.Instance.curMiniGame.goalGame[2];
                     break;
             }
         }
         else
         {
-            txtGoalGame.text = MiniGame_Manager.Instance.curMiniGame.goalGame[0];
+            txtGameInstrucion.text = MiniGame_Manager.Instance.curMiniGame.goalGame[0];
         }
+        txtGameGoal.text = MiniGame_Manager.Instance.curMiniGame.instructionGame;
 
         if(inputfraction.activeInHierarchy)
         {
@@ -97,6 +100,7 @@ public class UI_Controller : MonoBehaviour
                 inputFractionUI[i].interactable = true;
             }
         }
+        instructionsMiniGame.Play("HUD_Start");
     }
 
     public void CheckAnswer()

@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listed: 0
   completed: 0
+  instructionGame: "Observa las figuras, introduce la fracci\xF3n en los cuadrados
+    blancos"
   goalGame:
-  - "Introduce la fracci\xF3n en base a la figura"
-  - "Introduce la fracci\xF3n en base a las figuras"
-  - "Introduce la fracci\xF3n en base a las figuras"
+  - 
+  - 
+  - 
   objPrefab:
   - {fileID: 2911578740446910544, guid: 7f866415363b10d43aa4ddba8cbd292c, type: 3}
   - {fileID: 1987311471906005555, guid: 1b8cbea69f8bd1642be2dc4ac28f42dc, type: 3}

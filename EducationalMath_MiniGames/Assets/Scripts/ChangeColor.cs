@@ -11,6 +11,8 @@ public class ChangeColor : MonoBehaviour
     public Color played;
     public Color playerLerp;
 
+    public GameObject unitCheked;
+
     // Update is called once per frame
     void Update()
     {

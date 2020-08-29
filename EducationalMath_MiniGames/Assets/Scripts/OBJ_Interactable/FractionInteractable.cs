@@ -15,6 +15,11 @@ public class FractionInteractable : BaseObjInteractable
     public bool dragDrop = false;
     public bool correctAnswer = false;
 
+    Vector3 originPosition;
+
+    Vector3 screenPoint;
+    Vector3 offset;
+
 
     //Call this method when initialize the mini game "Select fraction"
     public void SetFractionTxt(int integer, int numerator, int denominator, bool canDragDrop)
@@ -26,34 +31,76 @@ public class FractionInteractable : BaseObjInteractable
         }
         else
             integerFeedbak.SetActive(false);
-        
+
         denominatorTxt.text = "" + denominator;
         numeratorTxt.text = "" + numerator;
 
-        if(canDragDrop)
+        if (canDragDrop)
+        {
             dragDrop = true;
+            originPosition = transform.position;
+        }
+
     }
 
     public override void OnMouseDown()
     {
         if (MiniGame_Manager.Instance.minigameState != MiniGameState.Playing)
             return;
-        else if(dragDrop)
+        else if (dragDrop)
+        {
+            //Convierte las coordenadas del objeto seleecionado a coordenadas de pantalla
+            screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+            //Compensa la posicion del objeto respecto a la posicion del mouse en pantalla
+            offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+            imgStatus.color = Color.red;
+            integerSprite.color = Color.red;
             return;
-            
-        if(!selected)
+        }
+
+
+        if (!selected)
         {
             imgStatus.color = Color.red;
             integerSprite.color = Color.red;
             UI_Controller.Instance.UpdateGameCondition(typeFractionToSelect);
             selected = true;
         }
-        else if(selected)
+        else if (selected)
         {
             imgStatus.color = Color.white;
             integerSprite.color = Color.white;
             UI_Controller.Instance.ChangeAnswerMiniGame(typeFractionToSelect);
             selected = false;
+        }
+    }
+    private void OnMouseDrag()
+    {
+        if (dragDrop)
+        {
+            //La posicion actual del mouse 
+            Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+            //La posicion a la que se movera el objeto, convirtiendo la posicion actual del mouse a coordenadas de espacio, se le suma la compensación
+            Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
+            //Se asigna la posicion al objeto
+            transform.position = curPosition;
+            //Si el usuario lleva la fraccion fuera de los limites de pantalla, regresa el objeto a su posición original
+            if (transform.position.x > MiniGame_Manager.Instance.width || transform.position.x < MiniGame_Manager.Instance.width * -1 ||
+            transform.position.y > MiniGame_Manager.Instance.height / 2 || transform.position.y < (MiniGame_Manager.Instance.height / 2) * -1)
+            {
+                transform.position = originPosition;
+                imgStatus.color = Color.white;
+                integerSprite.color = Color.white;
+            }
+        }
+    }
+
+    private void OnMouseUp()
+    {
+        if (dragDrop)
+        {
+            imgStatus.color = Color.white;
+            integerSprite.color = Color.white;
         }
     }
 }

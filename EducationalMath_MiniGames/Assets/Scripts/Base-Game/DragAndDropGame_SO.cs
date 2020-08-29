@@ -106,6 +106,7 @@ public class DragAndDropGame_SO : SO_BaseMiniGames
     {
         float posX;
         float posY = 1f;
+        Instantiate(objPrefab[1], new Vector3(0f,0f,-5f), Quaternion.identity);
         if (curUnit == TypeUnitFractions.ProperFractions)
         {
             posX = (MiniGame_Manager.Instance.width - 2.9f) * -1f;
@@ -133,10 +134,10 @@ public class DragAndDropGame_SO : SO_BaseMiniGames
                 piecesSelected = (MiniGame_Manager.Instance.integer * MiniGame_Manager.Instance.denominator) + MiniGame_Manager.Instance.numerator;
             else
                 piecesSelected = MiniGame_Manager.Instance.numerator;
-            Debug.Log("Piezas seleccionadas: " + piecesSelected);
+            //Debug.Log("Piezas seleccionadas: " + piecesSelected);
 
             totalFigures = (float)(Math.Ceiling(totalFigures));
-            Debug.Log("Piezas a crear: " + (totalFigures));
+            //Debug.Log("Piezas a crear: " + (totalFigures));
             float countFigures = totalFigures;
             int row = 2;
             if (totalFigures == 3)
@@ -155,13 +156,13 @@ public class DragAndDropGame_SO : SO_BaseMiniGames
                         newCircleFraction = Instantiate(circlePrefab[randCircle], objPartPosition, Quaternion.identity);
                         if (countFigures == 1)
                         {
-                            Debug.Log("Selecciono piezas restantes");
+                            //Debug.Log("Selecciono piezas restantes");
                             newCircleFraction.GetComponent<FractionPieces>().SetCircle(piecesSelected);
                         }
                         else
                         {
                             piecesSelected -= MiniGame_Manager.Instance.denominator;
-                            Debug.Log("Piezas resultantes: " + piecesSelected);
+                            //Debug.Log("Piezas resultantes: " + piecesSelected);
                         }
                         countFigures--;
                         posX += 2.5f;
@@ -228,7 +229,7 @@ public class DragAndDropGame_SO : SO_BaseMiniGames
                 }
                 else
                 {
-                    Debug.Log("Fracción aleatoria");
+                    //Debug.Log("Fracción aleatoria");
                     int setRandF = UnityEngine.Random.Range(1, 20);
                     if (setRandF <= 10)
                     {

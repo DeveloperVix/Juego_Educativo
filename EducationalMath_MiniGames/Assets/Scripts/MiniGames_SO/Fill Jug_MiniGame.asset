@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Fill Jug_MiniGame
   m_EditorClassIdentifier: 
   listed: 1
-  completed: 0
+  completed: 1
+  instructionGame: "Observa la siguiente fracci\xF3n y con tu dedo presiona hasta
+    llegar a la fracci\xF3n indicada. No debes\r pasarte"
   goalGame:
-  - "Llena el garraf\xF3n en base a la fracci\xF3n"
-  - "Llena los garraf\xF3nes en base a la fracci\xF3n"
-  - "Llena los garraf\xF3nes en base a la fracci\xF3n"
+  - 
+  - 
+  - 
   objPrefab:
   - {fileID: 7270426943876708935, guid: a1df32cb976e0904e82b906dac78c373, type: 3}
   miniGameFunctions: {fileID: 11400000, guid: 6b43a0c6c5dbb104da4956df26dfb8b6, type: 2}

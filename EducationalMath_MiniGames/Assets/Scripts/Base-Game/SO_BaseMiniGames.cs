@@ -5,6 +5,8 @@ public abstract class SO_BaseMiniGames : ScriptableObject
     public bool listed = false;
     public bool completed = false;
     [TextArea(3, 5)]
+    public string instructionGame;
+    [TextArea(3, 5)]
     public string[] goalGame;
     public GameObject[] objPrefab;
 
@@ -54,7 +56,7 @@ public abstract class SO_BaseMiniGames : ScriptableObject
                 fractionRand[2] = 0;
                 break;
             case TypeUnitFractions.MixedFractions:
-            Debug.Log("coloco fraccion mixta");
+//            Debug.Log("coloco fraccion mixta");
                 while (!ready)
                 {
                     numerator = UnityEngine.Random.Range(1, maxNumber);

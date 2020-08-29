@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64fca36edf731774f95805f748a037c4, type: 3}
   m_Name: Select Fraction_MiniGame
   m_EditorClassIdentifier: 
+  listed: 1
+  completed: 1
+  instructionGame: Selecciona todas las fracciones impropias que encuentres, no se
+    te debe de pasar ninguna
   goalGame:
-  - Selecciona las fracciones propias
-  - Selecciona las fracciones impropias
-  - Selecciona las fracciones mixtas
+  - 
+  - 
+  - 
   objPrefab:
   - {fileID: 257498955757898908, guid: e36fe38878f2cb44dba5a71e96f263a7, type: 3}
   posFraction: 000001000100
