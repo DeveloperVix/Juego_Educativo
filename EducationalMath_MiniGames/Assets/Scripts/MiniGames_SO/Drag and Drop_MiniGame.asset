@@ -16,9 +16,9 @@ MonoBehaviour:
   completed: 0
   instructionGame: "Observa los c\xEDrculos y arrastra la fracci\xF3n que le corresponde"
   goalGame:
-  - 
-  - 
-  - 
+  - "Observa el c\xEDrculo y arrastra la fracci\xF3n que le corresponde"
+  - "Observa los c\xEDrculos y arrastra la fracci\xF3n que le corresponde"
+  - "Observa los c\xEDrculos y arrastra la fracci\xF3n que le corresponde"
   objPrefab:
   - {fileID: 257498955757898908, guid: e36fe38878f2cb44dba5a71e96f263a7, type: 3}
   - {fileID: 6091188268210629466, guid: 189d6a83617d3aa459edfdc8319c6ae2, type: 3}
@@ -29,4 +29,4 @@ MonoBehaviour:
   - {fileID: 2220707828244623475, guid: bf890022e3d843844a770d6a765bff55, type: 3}
   - {fileID: 7115932637156721303, guid: 911f30679ecc6be4ca346d56b4998c88, type: 3}
   - {fileID: 114137360055248402, guid: 6c3898de200bef94184e33db28c378b3, type: 3}
-  fractions: 00000001
+  fractions: 01000000

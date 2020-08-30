@@ -77,21 +77,21 @@ public class UI_Controller : MonoBehaviour
             switch (MiniGame_Manager.Instance.curUnit.unitFractionName)
             {
                 case TypeUnitFractions.ProperFractions:
-                    txtGameInstrucion.text = MiniGame_Manager.Instance.curMiniGame.goalGame[0];
+                    txtGameGoal.text = MiniGame_Manager.Instance.curMiniGame.goalGame[0];
                     break;
                 case TypeUnitFractions.ImproperFractions:
-                    txtGameInstrucion.text = MiniGame_Manager.Instance.curMiniGame.goalGame[1];
+                    txtGameGoal.text = MiniGame_Manager.Instance.curMiniGame.goalGame[1];
                     break;
                 case TypeUnitFractions.MixedFractions:
-                    txtGameInstrucion.text = MiniGame_Manager.Instance.curMiniGame.goalGame[2];
+                    txtGameGoal.text = MiniGame_Manager.Instance.curMiniGame.goalGame[2];
                     break;
             }
         }
         else
         {
-            txtGameInstrucion.text = MiniGame_Manager.Instance.curMiniGame.goalGame[0];
+            txtGameGoal.text = MiniGame_Manager.Instance.curMiniGame.goalGame[0];
         }
-        txtGameGoal.text = MiniGame_Manager.Instance.curMiniGame.instructionGame;
+        //txtGameGoal.text = MiniGame_Manager.Instance.curMiniGame.instructionGame;
 
         if(inputfraction.activeInHierarchy)
         {

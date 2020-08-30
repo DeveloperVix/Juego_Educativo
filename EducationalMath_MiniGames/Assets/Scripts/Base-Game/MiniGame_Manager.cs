@@ -91,6 +91,9 @@ public class MiniGame_Manager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         UI_Controller.Instance.ShowResultsUnit("¡Bien hecho!, has completado la lección");
+        curUnit.unitComplete = true;
+        DataToSave_Load.Instance.unitsStatus[curUnit.indexUnit] = true;
+        LoadSave.Instance.SaveGame();
     }
 
     IEnumerator WaitMiniGame()

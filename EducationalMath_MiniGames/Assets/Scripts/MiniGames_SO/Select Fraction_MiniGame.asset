@@ -13,13 +13,16 @@ MonoBehaviour:
   m_Name: Select Fraction_MiniGame
   m_EditorClassIdentifier: 
   listed: 1
-  completed: 1
+  completed: 0
   instructionGame: Selecciona todas las fracciones impropias que encuentres, no se
     te debe de pasar ninguna
   goalGame:
-  - 
-  - 
-  - 
+  - Selecciona todas las fracciones propias que encuentres, no se te debe de pasar
+    ninguna
+  - Selecciona todas las fracciones impropias que encuentres, no se te debe de pasar
+    ninguna
+  - Selecciona todas las fracciones mixtas que encuentres, no se te debe de pasar
+    ninguna
   objPrefab:
   - {fileID: 257498955757898908, guid: e36fe38878f2cb44dba5a71e96f263a7, type: 3}
-  posFraction: 000001000100
+  posFraction: 000101000000

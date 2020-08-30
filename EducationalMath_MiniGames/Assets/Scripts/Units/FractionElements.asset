@@ -10,14 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54b066198a505d744a65fc14b90f5dda, type: 3}
-  m_Name: ProperFractions
+  m_Name: FractionElements
   m_EditorClassIdentifier: 
-  unitFractionName: 2
+  unitFractionName: 0
   unitPoints: 10
-  unitComplete: 1
-  indexUnit: 2
-  spritesInstructionsMiniGame:
-  - {fileID: 0}
-  textInstructionsMiniGames:
-  - "Una <b>fracci\xF3n propia</b> es cuando su <b>numerador es menor que su denominador</b>."
-  difficultyLevel: 1
+  unitComplete: 0
+  spritesInstructionsMiniGame: []
+  textInstructionsMiniGames: []
+  difficultyLevel: 0

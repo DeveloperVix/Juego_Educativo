@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitFractionName: 4
   unitPoints: 10
+  unitComplete: 0
+  indexUnit: 4
   spritesInstructionsMiniGame:
   - {fileID: 0}
   textInstructionsMiniGames:

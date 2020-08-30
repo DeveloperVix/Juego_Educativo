@@ -10,6 +10,9 @@ public class UnitElementsScriptable : ScriptableObject
     public TypeUnitFractions unitFractionName;
     public int unitPoints = 10;
 
+    public bool unitComplete = false;
+    public int indexUnit = 0;
+
     /*
     The sprites that will show the instructions for each mini game, 
     what the player must do

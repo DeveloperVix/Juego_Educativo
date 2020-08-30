@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2ee848fdec8c948bd8c63080a58d3e, type: 3}
   m_Name: InputFraction_MiniGame
   m_EditorClassIdentifier: 
-  listed: 0
+  listed: 1
   completed: 0
   instructionGame: "Observa las figuras, introduce la fracci\xF3n en los cuadrados
     blancos"
   goalGame:
-  - 
-  - 
-  - 
+  - "Observa la figura, introduce la fracci\xF3n en los cuadrados blancos"
+  - "Observa las figuras, introduce la fracci\xF3n en los cuadrados blancos"
+  - "Observa las figuras, introduce la fracci\xF3n en los cuadrados blancos"
   objPrefab:
   - {fileID: 2911578740446910544, guid: 7f866415363b10d43aa4ddba8cbd292c, type: 3}
   - {fileID: 1987311471906005555, guid: 1b8cbea69f8bd1642be2dc4ac28f42dc, type: 3}

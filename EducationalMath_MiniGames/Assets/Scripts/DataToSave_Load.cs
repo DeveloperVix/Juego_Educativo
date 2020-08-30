@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class DataToSave_Load : MonoBehaviour
 {
-    public static bool properUnit;
-    public static bool improperUnit;
-    public static bool mixedUnit;
+    private static DataToSave_Load instance;
+    public static DataToSave_Load Instance{get => instance;}
+    public bool[] unitsStatus;
+
+    private void Awake() 
+    {
+        instance = this;    
+    }
 }

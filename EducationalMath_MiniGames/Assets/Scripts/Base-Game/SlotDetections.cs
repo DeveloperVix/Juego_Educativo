@@ -27,6 +27,7 @@ public class SlotDetections : MonoBehaviour
             if (obj.GetComponent<FractionInteractable>().correctAnswer)
             {
                 UI_Controller.Instance.UpdateGameCondition();
+                obj.gameObject.transform.position = transform.position;
             }
             else
             {
