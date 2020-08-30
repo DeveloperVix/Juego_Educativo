@@ -47,6 +47,10 @@ public class FractionInteractable : BaseObjInteractable
         {
             StartCoroutine(HideInstruction());
         }
+        else
+        {
+            tapInstruction.SetActive(false);
+        }
     }
 
     IEnumerator HideInstruction()

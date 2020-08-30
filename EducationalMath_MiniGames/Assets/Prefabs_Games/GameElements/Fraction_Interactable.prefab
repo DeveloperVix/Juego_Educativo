@@ -369,6 +369,7 @@ MonoBehaviour:
   denominatorTxt: {fileID: 3169074671744906911}
   integerTxt: {fileID: 65850490}
   integerFeedbak: {fileID: 65850488}
+  tapInstruction: {fileID: 498227919}
   dragDrop: 0
   correctAnswer: 0
 --- !u!1 &3169074671564362336
@@ -918,8 +919,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tap
       objectReference: {fileID: 0}
+    - target: {fileID: 1421307093503930949, guid: 076bea727befa234f983fa6c27c84655,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 076bea727befa234f983fa6c27c84655, type: 3}
+--- !u!1 &498227919 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1421307093503930949, guid: 076bea727befa234f983fa6c27c84655,
+    type: 3}
+  m_PrefabInstance: {fileID: 1421307093699864714}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &498227913 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1421307093503930947, guid: 076bea727befa234f983fa6c27c84655,
