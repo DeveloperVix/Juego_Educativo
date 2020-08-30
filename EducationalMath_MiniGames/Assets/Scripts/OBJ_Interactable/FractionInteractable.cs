@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class FractionInteractable : BaseObjInteractable
@@ -11,6 +12,8 @@ public class FractionInteractable : BaseObjInteractable
     public TextMeshPro integerTxt;
     public GameObject integerFeedbak;
 
+    public GameObject tapInstruction;
+
     [Header("When the fraction is drag and drop")]
     public bool dragDrop = false;
     public bool correctAnswer = false;
@@ -22,7 +25,7 @@ public class FractionInteractable : BaseObjInteractable
 
 
     //Call this method when initialize the mini game "Select fraction"
-    public void SetFractionTxt(int integer, int numerator, int denominator, bool canDragDrop)
+    public void SetFractionTxt(int integer, int numerator, int denominator, bool canDragDrop, bool showTap)
     {
         if (integer != 0)
         {
@@ -40,7 +43,16 @@ public class FractionInteractable : BaseObjInteractable
             dragDrop = true;
             originPosition = transform.position;
         }
+        else if(showTap)
+        {
+            StartCoroutine(HideInstruction());
+        }
+    }
 
+    IEnumerator HideInstruction()
+    {
+        yield return new WaitForSeconds(2f);
+        tapInstruction.SetActive(false);
     }
 
     public override void OnMouseDown()

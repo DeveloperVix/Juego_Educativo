@@ -224,7 +224,7 @@ public class DragAndDropGame_SO : SO_BaseMiniGames
                     fractionRand[1] = MiniGame_Manager.Instance.denominator;
                     fractionRand[2] = MiniGame_Manager.Instance.integer;
                     curFractionG.GetComponent<FractionInteractable>().typeFractionToSelect = curUnit;
-                    curFractionG.GetComponent<FractionInteractable>().SetFractionTxt(fractionRand[2], fractionRand[0], fractionRand[1], true);
+                    curFractionG.GetComponent<FractionInteractable>().SetFractionTxt(fractionRand[2], fractionRand[0], fractionRand[1], true, false);
                     curFractionG.GetComponent<FractionInteractable>().correctAnswer = true;
                 }
                 else
@@ -241,7 +241,7 @@ public class DragAndDropGame_SO : SO_BaseMiniGames
                         fractionRand = GenerateFraction(otherFraction2, 11);
                         curFractionG.GetComponent<FractionInteractable>().typeFractionToSelect = otherFraction2;
                     }
-                    curFractionG.GetComponent<FractionInteractable>().SetFractionTxt(fractionRand[2], fractionRand[0], fractionRand[1], true);
+                    curFractionG.GetComponent<FractionInteractable>().SetFractionTxt(fractionRand[2], fractionRand[0], fractionRand[1], true, false);
                 }
 
                 posX -= 4f;

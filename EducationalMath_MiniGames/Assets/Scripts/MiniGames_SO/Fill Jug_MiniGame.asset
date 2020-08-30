@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listed: 1
   completed: 0
-  instructionGame: "Observa la siguiente fracci\xF3n y con tu dedo presiona hasta
-    llegar a la fracci\xF3n indicada. No debes pasarte"
+  instructionGame: 
   goalGame:
   - "Observa la siguiente fracci\xF3n y con tu dedo presiona hasta llegar a la fracci\xF3n
     indicada. No debes pasarte"

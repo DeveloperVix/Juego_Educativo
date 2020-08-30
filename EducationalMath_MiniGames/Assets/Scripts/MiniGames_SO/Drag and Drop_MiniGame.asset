@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listed: 1
   completed: 0
-  instructionGame: "Observa los c\xEDrculos y arrastra la fracci\xF3n que le corresponde"
+  instructionGame: 
   goalGame:
   - "Observa el c\xEDrculo y arrastra la fracci\xF3n que le corresponde"
   - "Observa los c\xEDrculos y arrastra la fracci\xF3n que le corresponde"

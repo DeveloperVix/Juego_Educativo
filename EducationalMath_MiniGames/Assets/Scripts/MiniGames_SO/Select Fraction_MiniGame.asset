@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listed: 1
   completed: 0
-  instructionGame: Selecciona todas las fracciones impropias que encuentres, no se
-    te debe de pasar ninguna
+  instructionGame: 
   goalGame:
   - Selecciona todas las fracciones propias que encuentres, no se te debe de pasar
     ninguna

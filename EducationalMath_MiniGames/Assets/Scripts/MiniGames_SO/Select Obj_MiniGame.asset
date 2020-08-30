@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listed: 1
   completed: 0
-  instructionGame: "Observa la imagen y selecciona la fracci\xF3n que le corresponde.
-    No debes pasarte"
+  instructionGame: 
   goalGame:
   - "Observa la imagen y selecciona la fracci\xF3n que le corresponde. No debes pasarte"
   objPrefab:

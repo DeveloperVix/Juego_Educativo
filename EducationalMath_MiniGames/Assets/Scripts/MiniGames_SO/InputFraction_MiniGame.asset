@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listed: 1
   completed: 0
-  instructionGame: "Observa las figuras, introduce la fracci\xF3n en los cuadrados
-    blancos"
+  instructionGame: 
   goalGame:
   - "Observa la figura, introduce la fracci\xF3n en los cuadrados blancos"
   - "Observa las figuras, introduce la fracci\xF3n en los cuadrados blancos"

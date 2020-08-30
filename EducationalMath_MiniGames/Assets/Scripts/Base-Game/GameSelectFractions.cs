@@ -48,7 +48,7 @@ public class GameSelectFractions : SO_BaseMiniGames
 
         Vector3 fractionPos = new Vector3(posX, posY, 0);
         int indexPosFraction = 0;
-        
+
         TypeUnitFractions otherFraction1 = TypeUnitFractions.ImproperFractions;
         TypeUnitFractions otherFraction2 = TypeUnitFractions.MixedFractions;
 
@@ -56,11 +56,11 @@ public class GameSelectFractions : SO_BaseMiniGames
         {
             otherFraction1 = TypeUnitFractions.ProperFractions;
         }
-        else if(curUnit == TypeUnitFractions.MixedFractions)
+        else if (curUnit == TypeUnitFractions.MixedFractions)
         {
             otherFraction2 = TypeUnitFractions.ProperFractions;
         }
-
+        bool firstObj = true;
         for (int i = 0; i < 2; i++)
         {
             for (int y = 0; y < 3; y++)
@@ -87,7 +87,12 @@ public class GameSelectFractions : SO_BaseMiniGames
                     }
                 }
 
-                curFractionG.GetComponent<FractionInteractable>().SetFractionTxt(fractionRand[2], fractionRand[0], fractionRand[1], false);
+                if (y == 0 && firstObj)
+                {
+                    curFractionG.GetComponent<FractionInteractable>().SetFractionTxt(fractionRand[2], fractionRand[0], fractionRand[1], false, true);
+                    firstObj = false;
+                }
+                curFractionG.GetComponent<FractionInteractable>().SetFractionTxt(fractionRand[2], fractionRand[0], fractionRand[1], false, false);
                 posX -= 5;
                 fractionPos.x = posX;
                 indexPosFraction++;
