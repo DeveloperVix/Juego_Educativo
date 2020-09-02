@@ -35,7 +35,6 @@ public class UI_Controller : MonoBehaviour
     public TextMeshProUGUI txtFeedbackAnswers;
     public TextMeshProUGUI txtGameInstrucion;
     public TextMeshProUGUI txtGameGoal;
-    public TextMeshProUGUI txtAmountAnswers;
 
     public Animator backgroundLoad;
 
@@ -78,13 +77,40 @@ public class UI_Controller : MonoBehaviour
             switch (MiniGame_Manager.Instance.curUnit.unitFractionName)
             {
                 case TypeUnitFractions.ProperFractions:
-                    txtGameGoal.text = MiniGame_Manager.Instance.curMiniGame.goalGame[0];
+                    if (MiniGame_Manager.Instance.curMiniGame.name == "Select Fraction_MiniGame")
+                    {
+                        int amountFractions = MiniGame_Manager.Instance.totalHits - MiniGame_Manager.Instance.curHits;
+                        if (amountFractions > 1)
+                            txtGameGoal.text = string.Format(MiniGame_Manager.Instance.curMiniGame.goalGame[0], amountFractions);
+                        else
+                            txtGameGoal.text = "Selecciona la <b>fracción propia</b> que encuentres";
+                    }
+                    else
+                        txtGameGoal.text = MiniGame_Manager.Instance.curMiniGame.goalGame[0];
                     break;
                 case TypeUnitFractions.ImproperFractions:
-                    txtGameGoal.text = MiniGame_Manager.Instance.curMiniGame.goalGame[1];
+                    if (MiniGame_Manager.Instance.curMiniGame.name == "Select Fraction_MiniGame")
+                    {
+                        int amountFractions = MiniGame_Manager.Instance.totalHits - MiniGame_Manager.Instance.curHits;
+                        if (amountFractions > 1)
+                            txtGameGoal.text = string.Format(MiniGame_Manager.Instance.curMiniGame.goalGame[1], amountFractions);
+                        else
+                            txtGameGoal.text = "Selecciona la <b>fracción impropia</b> que encuentres";
+                    }
+                    else
+                        txtGameGoal.text = MiniGame_Manager.Instance.curMiniGame.goalGame[1];
                     break;
                 case TypeUnitFractions.MixedFractions:
-                    txtGameGoal.text = MiniGame_Manager.Instance.curMiniGame.goalGame[2];
+                    if (MiniGame_Manager.Instance.curMiniGame.name == "Select Fraction_MiniGame")
+                    {
+                        int amountFractions = MiniGame_Manager.Instance.totalHits - MiniGame_Manager.Instance.curHits;
+                        if (amountFractions > 1)
+                            txtGameGoal.text = string.Format(MiniGame_Manager.Instance.curMiniGame.goalGame[2], amountFractions);
+                        else
+                            txtGameGoal.text = "Selecciona la <b>fracción mixta</b> que encuentres";
+                    }
+                    else
+                        txtGameGoal.text = MiniGame_Manager.Instance.curMiniGame.goalGame[2];
                     break;
             }
         }
@@ -97,31 +123,21 @@ public class UI_Controller : MonoBehaviour
         {
             case TypeUnitFractions.ProperFractions:
                 txtGameInstrucion.text = "Estás aprendiendo: Fracciones propias";
-            break;
+                break;
             case TypeUnitFractions.ImproperFractions:
                 txtGameInstrucion.text = "Estás aprendiendo: Fracciones impropias";
-            break;
+                break;
             case TypeUnitFractions.MixedFractions:
                 txtGameInstrucion.text = "Estás aprendiendo: Fracciones mixtas";
-            break;
+                break;
         }
 
-        if(inputfraction.activeInHierarchy)
+        if (inputfraction.activeInHierarchy)
         {
             for (int i = 0; i < inputFractionUI.Length; i++)
             {
                 inputFractionUI[i].interactable = true;
             }
-        }
-
-        if(MiniGame_Manager.Instance.curMiniGame.name == "Select Fraction_MiniGame")
-        {
-            txtAmountAnswers.gameObject.SetActive(true);
-            txtAmountAnswers.text = "Debes seleccionar " + MiniGame_Manager.Instance.totalHits + " fraccion(es)";
-        }
-        else
-        {
-            txtAmountAnswers.gameObject.SetActive(false);
         }
         instructionsMiniGame.Play("HUD_Start");
     }
@@ -153,7 +169,7 @@ public class UI_Controller : MonoBehaviour
         goodBadSprite.gameObject.SetActive(true);
         MiniGame_Manager.Instance.minigameState = MiniGameState.Idle;
         btnsFeedback[1].gameObject.SetActive(true);
-        if(inputfraction.activeInHierarchy)
+        if (inputfraction.activeInHierarchy)
         {
             for (int i = 0; i < inputFractionUI.Length; i++)
             {
@@ -197,12 +213,6 @@ public class UI_Controller : MonoBehaviour
         if (!btnsFeedback[0].gameObject.activeInHierarchy)
         {
             btnsFeedback[0].gameObject.SetActive(true); //btn check answer
-        }
-
-        if(MiniGame_Manager.Instance.curMiniGame.name == "Select Fraction_MiniGame")
-        {
-            int amountFractions = MiniGame_Manager.Instance.totalHits - MiniGame_Manager.Instance.curHits;
-            txtAmountAnswers.text = "Debes seleccionar " + amountFractions + " fraccion(es)";
         }
     }
 

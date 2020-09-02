@@ -16,7 +16,7 @@ MonoBehaviour:
   completed: 0
   instructionGame: 
   goalGame:
-  - "Observa la imagen y selecciona la fracci\xF3n que le corresponde. No debes pasarte"
+  - "Selecciona cada parte de la figura para que sea igual con la fracci\xF3n"
   objPrefab:
   - {fileID: 2911578740446910544, guid: 7f866415363b10d43aa4ddba8cbd292c, type: 3}
   - {fileID: 1987311471906005555, guid: 1b8cbea69f8bd1642be2dc4ac28f42dc, type: 3}

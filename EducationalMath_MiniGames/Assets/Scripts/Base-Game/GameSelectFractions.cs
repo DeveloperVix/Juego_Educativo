@@ -92,7 +92,8 @@ public class GameSelectFractions : SO_BaseMiniGames
                     curFractionG.GetComponent<FractionInteractable>().SetFractionTxt(fractionRand[2], fractionRand[0], fractionRand[1], false, true);
                     firstObj = false;
                 }
-                curFractionG.GetComponent<FractionInteractable>().SetFractionTxt(fractionRand[2], fractionRand[0], fractionRand[1], false, false);
+                else
+                    curFractionG.GetComponent<FractionInteractable>().SetFractionTxt(fractionRand[2], fractionRand[0], fractionRand[1], false, false);
                 posX -= 5;
                 fractionPos.x = posX;
                 indexPosFraction++;

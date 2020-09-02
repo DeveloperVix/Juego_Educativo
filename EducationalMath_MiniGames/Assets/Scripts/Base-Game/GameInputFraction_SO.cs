@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Mini Games/Input fraction", fileName = "InputFraction_MiniGame")]
@@ -40,46 +42,24 @@ public class GameInputFraction_SO : SO_BaseMiniGames
     {
         if (curUnit == TypeUnitFractions.ProperFractions)
         {
-            int posX = 0;
+            int posX = -4;
             int posY = 0;
             GameObject newPiece;
             Vector3 objPartPosition = new Vector3(posX, posY, 0);
-            newPiece = Instantiate(objPrefab[0], objPartPosition, Quaternion.identity);
-            newPiece.GetComponent<BaseObjInteractable>().SetObjNotInteractable(true);
-            bool right = true;
-            int totalPiecesSelected = MiniGame_Manager.Instance.numerator - 1;
+            int totalPiecesSelected = MiniGame_Manager.Instance.numerator;
 
-            for (int i = 0; i < MiniGame_Manager.Instance.denominator - 1; i++)
+            for (int i = 0; i < MiniGame_Manager.Instance.denominator; i++)
             {
-                if (right)
+                newPiece = Instantiate(objPrefab[0], objPartPosition, Quaternion.identity);
+                if (totalPiecesSelected > 0)
                 {
-                    posX++;
-                    objPartPosition.x = posX;
-                    newPiece = Instantiate(objPrefab[0], objPartPosition, Quaternion.identity);
-                    if (totalPiecesSelected > 0)
-                    {
-                        newPiece.GetComponent<BaseObjInteractable>().SetObjNotInteractable(true);
-                        totalPiecesSelected--;
-                    }
-                    else
-                        newPiece.GetComponent<BaseObjInteractable>().SetObjNotInteractable(false);
-                    right = false;
+                    newPiece.GetComponent<BaseObjInteractable>().SetObjNotInteractable(true);
+                    totalPiecesSelected--;
                 }
                 else
-                {
-                    posX *= -1;
-                    objPartPosition.x = posX;
-                    newPiece = Instantiate(objPrefab[0], objPartPosition, Quaternion.identity);
-                    if (totalPiecesSelected > 0)
-                    {
-                        newPiece.GetComponent<BaseObjInteractable>().SetObjNotInteractable(true);
-                        totalPiecesSelected--;
-                    }
-                    else
-                        newPiece.GetComponent<BaseObjInteractable>().SetObjNotInteractable(false);
-                    posX *= -1;
-                    right = true;
-                }
+                    newPiece.GetComponent<BaseObjInteractable>().SetObjNotInteractable(false);
+                posX++;
+                objPartPosition.x = posX;
             }
         }
         else if (curUnit == TypeUnitFractions.ImproperFractions || curUnit == TypeUnitFractions.MixedFractions)
@@ -104,7 +84,7 @@ public class GameInputFraction_SO : SO_BaseMiniGames
             totalFigures = (float)(Math.Ceiling(totalFigures));
             //Debug.Log("Piezas a crear: " + (totalFigures));
             float countFigures = totalFigures;
-            Debug.Log("Piezas a colocar: "+countFigures);
+            Debug.Log("Piezas a colocar: " + countFigures);
             int row = 2;
             if (totalFigures == 3)
                 row = 1;
@@ -117,7 +97,7 @@ public class GameInputFraction_SO : SO_BaseMiniGames
                 piecesSelected = (MiniGame_Manager.Instance.integer * MiniGame_Manager.Instance.denominator) + MiniGame_Manager.Instance.numerator;
             else
                 piecesSelected = MiniGame_Manager.Instance.numerator;
-                Debug.Log("Piezas seleccionadas: " + piecesSelected);
+            Debug.Log("Piezas seleccionadas: " + piecesSelected);
 
             for (int y = 0; y < row; y++)
             {

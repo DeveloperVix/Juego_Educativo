@@ -6,6 +6,8 @@ public class BaseObjInteractable : MonoBehaviour
     public bool selected = false;
     public SpriteRenderer imgStatus;
 
+    public Color pieceSelected;
+
     public virtual void OnMouseDown() 
     {
         if(MiniGame_Manager.Instance.minigameState != MiniGameState.Playing)
@@ -16,7 +18,7 @@ public class BaseObjInteractable : MonoBehaviour
 
         if(!selected)
         {
-            imgStatus.color = Color.red;
+            imgStatus.color = pieceSelected;
             UI_Controller.Instance.UpdateGameCondition();
             selected = true;
         }
@@ -33,7 +35,7 @@ public class BaseObjInteractable : MonoBehaviour
         isInteractable = false;
         if(selected)
         {
-            imgStatus.color = Color.red;
+            imgStatus.color = pieceSelected;
         }
     }
 }

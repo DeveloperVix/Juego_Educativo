@@ -16,9 +16,9 @@ MonoBehaviour:
   completed: 0
   instructionGame: 
   goalGame:
-  - "Observa la figura, introduce la fracci\xF3n en los cuadrados blancos"
-  - "Observa las figuras, introduce la fracci\xF3n en los cuadrados blancos"
-  - "Observa las figuras, introduce la fracci\xF3n en los cuadrados blancos"
+  - "Escribe la fracci\xF3n propia que representa a la figura"
+  - "Escribe la fracci\xF3n impropia que representa a las figuras"
+  - "Escribe la fracci\xF3n mixta que representa a las figuras"
   objPrefab:
   - {fileID: 2911578740446910544, guid: 7f866415363b10d43aa4ddba8cbd292c, type: 3}
   - {fileID: 1987311471906005555, guid: 1b8cbea69f8bd1642be2dc4ac28f42dc, type: 3}
