@@ -13,6 +13,7 @@ public class GameInputFraction_SO : SO_BaseMiniGames
 
         MiniGame_Manager.Instance.numerator = fractionRand[0];
         MiniGame_Manager.Instance.denominator = fractionRand[1];
+        UI_Controller.Instance.curFractionByPlayer[1].gameObject.transform.parent.gameObject.SetActive(false);
 
         if (curUnit == TypeUnitFractions.MixedFractions)
         {
@@ -31,6 +32,7 @@ public class GameInputFraction_SO : SO_BaseMiniGames
         }
 
         UI_Controller.Instance.inputfraction.SetActive(true);
+        UI_Controller.Instance.inputfraction.transform.GetChild(3).gameObject.SetActive(true);
 
         for (int i = 0; i < UI_Controller.Instance.inputFractionUI.Length; i++)
         {

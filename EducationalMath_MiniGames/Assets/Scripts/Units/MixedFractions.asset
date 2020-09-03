@@ -17,7 +17,7 @@ MonoBehaviour:
   unitComplete: 0
   indexUnit: 4
   spritesInstructionsMiniGame:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: cd084e914c9c0c843aa376def3c0062a, type: 3}
   textInstructionsMiniGames:
   - "Una <b>fracci\xF3n mixta</b> es la combinaci\xF3n de <b>un n\xFAmero entero
     y una fracci\xF3n</b>."

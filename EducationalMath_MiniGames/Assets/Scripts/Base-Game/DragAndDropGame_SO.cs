@@ -15,6 +15,7 @@ public class DragAndDropGame_SO : SO_BaseMiniGames
     int randCircle;
     public override void InitGame(TypeUnitFractions curUnit)
     {
+        UI_Controller.Instance.curFractionByPlayer[1].gameObject.transform.parent.gameObject.SetActive(false);
         //There is only 1 correct answer
         MiniGame_Manager.Instance.totalHits = 1;
         UI_Controller.Instance.inputfraction.SetActive(false);

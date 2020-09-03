@@ -17,7 +17,7 @@ MonoBehaviour:
   unitComplete: 1
   indexUnit: 2
   spritesInstructionsMiniGame:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: d103d1d444ea4424fb21c709fb61f2ce, type: 3}
   textInstructionsMiniGames:
   - "Una <b>fracci\xF3n propia</b> es cuando su <b>numerador es menor que su denominador</b>."
   difficultyLevel: 1

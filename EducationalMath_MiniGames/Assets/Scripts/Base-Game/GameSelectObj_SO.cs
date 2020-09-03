@@ -21,6 +21,12 @@ public class GameSelectObj_SO : SO_BaseMiniGames
             UI_Controller.Instance.fraction[1].text = MiniGame_Manager.Instance.denominator.ToString();
             UI_Controller.Instance.fraction[2].gameObject.transform.parent.gameObject.SetActive(false);
 
+            UI_Controller.Instance.curFractionByPlayer[1].gameObject.transform.parent.gameObject.SetActive(true);
+            UI_Controller.Instance.curFractionByPlayer[2].gameObject.SetActive(false);
+            UI_Controller.Instance.curFractionByPlayer[0].text ="0";
+            UI_Controller.Instance.curFractionByPlayer[1].text =""+fractionRand[1];
+            UI_Controller.Instance.tempInteger = 0;
+
             //for the proper and improper fractions, the player need to select the number of objects based on the numerator
             MiniGame_Manager.Instance.totalHits = MiniGame_Manager.Instance.numerator;
         }
@@ -37,6 +43,12 @@ public class GameSelectObj_SO : SO_BaseMiniGames
             UI_Controller.Instance.fraction[0].text = MiniGame_Manager.Instance.numerator.ToString();
             UI_Controller.Instance.fraction[1].text = MiniGame_Manager.Instance.denominator.ToString();
             UI_Controller.Instance.fraction[2].text = MiniGame_Manager.Instance.integer.ToString();
+
+            UI_Controller.Instance.curFractionByPlayer[1].gameObject.transform.parent.gameObject.SetActive(true);
+            UI_Controller.Instance.curFractionByPlayer[0].text ="0";
+            UI_Controller.Instance.curFractionByPlayer[1].text =""+fractionRand[1];
+            UI_Controller.Instance.curFractionByPlayer[2].text ="0";
+            UI_Controller.Instance.tempInteger = 0;
 
             MiniGame_Manager.Instance.totalHits = (MiniGame_Manager.Instance.integer * MiniGame_Manager.Instance.denominator) + MiniGame_Manager.Instance.numerator;
         }

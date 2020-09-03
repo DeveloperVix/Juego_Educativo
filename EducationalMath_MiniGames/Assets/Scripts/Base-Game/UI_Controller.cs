@@ -17,6 +17,10 @@ public class UI_Controller : MonoBehaviour
     [Header("Results")]
     public GameObject backgroundResults;
     public TextMeshProUGUI messageResult;
+    public TextMeshProUGUI averageTxt;
+
+    [Header("Bar progress")]
+    public Slider barProgress;
 
     [Header("Mini Games Elements")]
     /*
@@ -42,6 +46,7 @@ public class UI_Controller : MonoBehaviour
 
     [Header("SelectObj Elements")]
     public TextMeshProUGUI[] fraction; //0 -> numerator, 1 -> denominator, 2 -> integer
+    public TextMeshProUGUI[] curFractionByPlayer; //0 -> numertaor, 1 -> denominator, 2 -> integer
 
     [Header("Input fraction")]
     public GameObject inputfraction;
@@ -57,9 +62,10 @@ public class UI_Controller : MonoBehaviour
         SetInfoUnit();
     }
 
-    public void ShowResultsUnit(string theMessage)
+    public void ShowResultsUnit(string theMessage, string average)
     {
         messageResult.text = theMessage;
+        averageTxt.text = average;
         backgroundResults.SetActive(true);
     }
 
@@ -68,6 +74,22 @@ public class UI_Controller : MonoBehaviour
         conceptUnitTxt.text = MiniGame_Manager.Instance.curUnit.textInstructionsMiniGames[indexInfoUnit];
         imgConcept.sprite = MiniGame_Manager.Instance.curUnit.spritesInstructionsMiniGame[indexInfoUnit];
         indexInfoUnit++;
+    }
+
+    public void UpdateProgress(bool add)
+    {
+        if (add)
+        {
+            barProgress.value++;
+            if(barProgress.value > 6)
+                barProgress.value = 6;
+        }
+        else
+        {
+            barProgress.value--;
+            if(barProgress.value < 0)
+                barProgress.value = 0;
+        }
     }
 
     public void UpdateGoalGame()
@@ -154,16 +176,20 @@ public class UI_Controller : MonoBehaviour
             //Suma puntos completos a los puntos actuales del jugador
 
             MiniGame_Manager.Instance.curMiniGame.completed = true;
+            MiniGame_Manager.Instance.curCorrectAnswers++;
+
         }
         else
         {
-            txtFeedbackAnswers.text = "Respuesta incorrecta";
+            txtFeedbackAnswers.text = "Respuesta incorrecta\n\nNo te preocupes, pasa al siguiente juego, podrás intentarlo al final";
             goodBadSprite.sprite = goodBadSprites[1];
             btnsFeedback[1].image.sprite = goodBadSprites[3];
 
             //pasar el mini juego al final de la lista de los juegos por jugar
             MiniGame_Manager.Instance.MiniGameAtEnd();
             //Suma la mitad de puntos a los puntos actuales del jugador
+
+            MiniGame_Manager.Instance.curWrongAnswers++;
         }
         txtFeedbackAnswers.gameObject.SetActive(true);
         goodBadSprite.gameObject.SetActive(true);
@@ -214,6 +240,10 @@ public class UI_Controller : MonoBehaviour
         {
             btnsFeedback[0].gameObject.SetActive(true); //btn check answer
         }
+
+        tempNumerator++;
+        BehaviourMiniGamesOnUI(false);
+
     }
 
     public void UpdateGameCondition(TypeUnitFractions objFraction)
@@ -239,8 +269,60 @@ public class UI_Controller : MonoBehaviour
         MiniGame_Manager.Instance.curHits--;
         if (MiniGame_Manager.Instance.curHits <= 0)
         {
+            tempNumerator = 0;
+            tempInteger = 0;
             MiniGame_Manager.Instance.curHits = 0;
             btnsFeedback[0].gameObject.SetActive(false);
+        }
+
+        tempNumerator--;
+        BehaviourMiniGamesOnUI(true);
+    }
+
+
+    public int tempInteger = 0;
+    public int tempNumerator = 0;
+    void BehaviourMiniGamesOnUI(bool changeAnswer)
+    {
+        if (MiniGame_Manager.Instance.curMiniGame.name == "Select Obj_MiniGame" ||
+        MiniGame_Manager.Instance.curMiniGame.name == "Fill Jug_MiniGame")
+        {
+            if (MiniGame_Manager.Instance.curUnit.unitFractionName == TypeUnitFractions.ProperFractions ||
+            MiniGame_Manager.Instance.curUnit.unitFractionName == TypeUnitFractions.ImproperFractions)
+            {
+                curFractionByPlayer[0].text = "" + MiniGame_Manager.Instance.curHits;
+                curFractionByPlayer[0].gameObject.transform.parent.gameObject.GetComponent<Animator>().Play("UpdateNumerator");
+            }
+            else
+            {
+                if (!changeAnswer)
+                {
+                    if (tempNumerator == MiniGame_Manager.Instance.denominator)
+                    {
+                        tempInteger++;
+                        tempNumerator = 0;
+                        curFractionByPlayer[0].text = "0";
+                        curFractionByPlayer[2].text = "" + tempInteger;
+                        curFractionByPlayer[0].gameObject.transform.parent.gameObject.GetComponent<Animator>().Play("UpdateInteger");
+                    }
+                    else
+                    {
+                        curFractionByPlayer[0].text = "" + tempNumerator;
+                        curFractionByPlayer[0].gameObject.transform.parent.gameObject.GetComponent<Animator>().Play("UpdateNumerator");
+                    }
+                }
+                else
+                {
+                    if (tempInteger > 0 && tempNumerator < 0)
+                    {
+                        tempInteger--;
+                        curFractionByPlayer[2].text = "" + tempInteger;
+                        tempNumerator = MiniGame_Manager.Instance.denominator - 1;
+                    }
+                    curFractionByPlayer[0].text = "" + tempNumerator;
+                    curFractionByPlayer[0].gameObject.transform.parent.gameObject.GetComponent<Animator>().Play("UpdateNumerator");
+                }
+            }
         }
     }
 

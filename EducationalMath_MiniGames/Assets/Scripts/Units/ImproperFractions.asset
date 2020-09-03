@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitFractionName: 3
   unitPoints: 10
-  unitComplete: 0
+  unitComplete: 1
   indexUnit: 3
   spritesInstructionsMiniGame:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 3d7aa0847efbbdd48b39b6e53cfb0bc3, type: 3}
   textInstructionsMiniGames:
   - "Una <b>fracci\xF3n impropia</b> es cuando su <b>numerador es mayor que su denominador</b>."
   difficultyLevel: 1

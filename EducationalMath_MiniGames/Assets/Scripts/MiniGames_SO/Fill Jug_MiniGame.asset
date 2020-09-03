@@ -16,12 +16,9 @@ MonoBehaviour:
   completed: 0
   instructionGame: 
   goalGame:
-  - "Observa la siguiente fracci\xF3n y con tu dedo presiona hasta llegar a la fracci\xF3n
-    indicada. No debes pasarte"
-  - "Observa la siguiente fracci\xF3n y con tu dedo presiona hasta llegar a la fracci\xF3n
-    indicada. No debes pasarte"
-  - "Observa la siguiente fracci\xF3n y con tu dedo presiona hasta llegar a la fracci\xF3n
-    indicada. No debes pasarte"
+  - "Representa la fracci\xF3n propia en el garraf\xF3n"
+  - "Representa la fracci\xF3n impropia en los garrafones"
+  - "Represetna la fracci\xF3n mixta en los garrafones"
   objPrefab:
   - {fileID: 7270426943876708935, guid: a1df32cb976e0904e82b906dac78c373, type: 3}
   miniGameFunctions: {fileID: 11400000, guid: 6b43a0c6c5dbb104da4956df26dfb8b6, type: 2}

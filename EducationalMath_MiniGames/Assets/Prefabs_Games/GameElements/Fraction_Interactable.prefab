@@ -363,6 +363,7 @@ MonoBehaviour:
   isInteractable: 1
   selected: 0
   imgStatus: {fileID: 3169074672288534030}
+  pieceSelected: {r: 0, g: 0, b: 0, a: 0}
   integerSprite: {fileID: 1091342929}
   typeFractionToSelect: 0
   numeratorTxt: {fileID: 3169074671564362350}
@@ -922,7 +923,7 @@ PrefabInstance:
     - target: {fileID: 1421307093503930949, guid: 076bea727befa234f983fa6c27c84655,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 076bea727befa234f983fa6c27c84655, type: 3}

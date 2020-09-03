@@ -17,6 +17,10 @@ public class MiniGame_Manager : MonoBehaviour
     public SO_BaseMiniGames curMiniGame;
     public List<SO_BaseMiniGames> miniGamesToPlay;
     public int indexMiniGame = -1;
+    [Header("Progress")]
+    public int totalCorrectAnswers = 5;
+    public int curCorrectAnswers = 0;
+    public int curWrongAnswers = 0;
 
     [Header("Fraction")]
     public int numerator = 1;
@@ -70,9 +74,10 @@ public class MiniGame_Manager : MonoBehaviour
     public void SetMiniGame()
     {
         indexMiniGame++;
+        UI_Controller.Instance.UpdateProgress(true);
         if (indexMiniGame == miniGamesToPlay.Count)
         {
-//            Debug.LogError("Mini juegos terminados");
+            //            Debug.LogError("Mini juegos terminados");
             minigameState = MiniGameState.Finish;
             StartCoroutine(ShowResults());
         }
@@ -89,8 +94,26 @@ public class MiniGame_Manager : MonoBehaviour
     IEnumerator ShowResults()
     {
         yield return new WaitForSeconds(1f);
+        float average = ((curCorrectAnswers - curWrongAnswers) * 10) / totalCorrectAnswers;
 
-        UI_Controller.Instance.ShowResultsUnit("¡Bien hecho!, has completado la lección");
+        if (average == 10)
+        {
+            UI_Controller.Instance.ShowResultsUnit("¡Perfecto!, has completado la lección sin ningún error, has estado estudiando", average.ToString());
+        }
+        else if(average >= 8)
+        {
+            UI_Controller.Instance.ShowResultsUnit("¡Bien hecho!, has completado la lección, dominas el tema, recuerda practicar", average.ToString());
+        }
+        else if(average >= 6)
+        {
+            UI_Controller.Instance.ShowResultsUnit("¡Bien!, has completado la lección, no olvides practicar para mejorar", average.ToString());
+        }
+        else if(average <= 5)
+        {
+            UI_Controller.Instance.ShowResultsUnit("No pasa nada, recuerda que tienes el botón de ayuda si te sientes perdido", average.ToString());
+        }
+
+
         curUnit.unitComplete = true;
         DataToSave_Load.Instance.unitsStatus[curUnit.indexUnit] = true;
         LoadSave.Instance.SaveGame();
@@ -120,6 +143,7 @@ public class MiniGame_Manager : MonoBehaviour
     {
         SO_BaseMiniGames tempMiniGame = curMiniGame;
         indexMiniGame--;
+        UI_Controller.Instance.UpdateProgress(false);
 
         for (int i = 0; i < miniGamesToPlay.Count; i++)
         {

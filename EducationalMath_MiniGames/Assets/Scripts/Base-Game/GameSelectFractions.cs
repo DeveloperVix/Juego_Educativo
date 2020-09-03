@@ -13,6 +13,7 @@ public class GameSelectFractions : SO_BaseMiniGames
         //Debug.Log("Set Conditions");
         totalFractionsToSelect = Random.Range(1, 7);
         MiniGame_Manager.Instance.totalHits = totalFractionsToSelect;
+        UI_Controller.Instance.curFractionByPlayer[1].gameObject.transform.parent.gameObject.SetActive(false);
         UI_Controller.Instance.inputfraction.SetActive(false);
         for (int i = 0; i < UI_Controller.Instance.fraction.Length; i++)
         {
