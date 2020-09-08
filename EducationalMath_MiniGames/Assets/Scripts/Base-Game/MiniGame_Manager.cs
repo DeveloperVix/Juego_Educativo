@@ -21,6 +21,7 @@ public class MiniGame_Manager : MonoBehaviour
     public int totalCorrectAnswers = 5;
     public int curCorrectAnswers = 0;
     public int curWrongAnswers = 0;
+    float average = 0;
 
     [Header("Fraction")]
     public int numerator = 1;
@@ -94,28 +95,43 @@ public class MiniGame_Manager : MonoBehaviour
     IEnumerator ShowResults()
     {
         yield return new WaitForSeconds(1f);
-        float average = ((curCorrectAnswers - curWrongAnswers) * 10) / totalCorrectAnswers;
+        average = ((curCorrectAnswers - curWrongAnswers) * 10) / totalCorrectAnswers;
 
         if (average == 10)
         {
-            UI_Controller.Instance.ShowResultsUnit("¡Perfecto!, has completado la lección sin ningún error, has estado estudiando", average.ToString());
+            UI_Controller.Instance.ShowResultsUnit("¡Perfecto!, has completado la lección sin ningún error, has estado estudiando", 0);
         }
-        else if(average >= 8)
+        else if (average >= 8)
         {
-            UI_Controller.Instance.ShowResultsUnit("¡Bien hecho!, has completado la lección, dominas el tema, recuerda practicar", average.ToString());
+            UI_Controller.Instance.ShowResultsUnit("¡Bien hecho!, has completado la lección, dominas el tema, recuerda practicar", 0);
         }
-        else if(average >= 6)
+        else if (average >= 6)
         {
-            UI_Controller.Instance.ShowResultsUnit("¡Bien!, has completado la lección, no olvides practicar para mejorar", average.ToString());
+            UI_Controller.Instance.ShowResultsUnit("¡Bien!, has completado la lección, no olvides practicar para mejorar", 0);
         }
-        else if(average <= 5)
+        else if (average <= 5)
         {
-            UI_Controller.Instance.ShowResultsUnit("No pasa nada, recuerda que tienes el botón de ayuda si te sientes perdido", average.ToString());
+            UI_Controller.Instance.ShowResultsUnit("No pasa nada, recuerda que tienes el botón de ayuda (?) si te sientes perdido", 0);
         }
 
 
         curUnit.unitComplete = true;
         DataToSave_Load.Instance.unitsStatus[curUnit.indexUnit] = true;
+        LoadSave.Instance.SaveGame();
+    }
+
+    public void ShowPointsUnit()
+    {
+        StartCoroutine(ShowPointsOnUI());
+    }
+
+    IEnumerator ShowPointsOnUI()
+    {
+        yield return new WaitForSeconds(0.35f);
+        float totalPoints = average * (float)curUnit.unitPoints;
+        //UI_Controller.Instance.ShowResultsUnit("Haz obtenido <b>{0}</b> de puntaje, estos puntos puedes usarlos en la tienda que esta en el menú", totalPoints);
+        UI_Controller.Instance.ShowResultsUnit("Haz obtenido <b>{0}</b> de puntaje", average);
+        DataToSave_Load.Instance.currentPoints += (int)average;
         LoadSave.Instance.SaveGame();
     }
 

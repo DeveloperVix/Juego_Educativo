@@ -39,6 +39,8 @@ public class LoadSave : MonoBehaviour
             dataG.unitsStatus[i] = DataToSave_Load.Instance.unitsStatus[i];
         }
 
+        dataG.playerPoints = DataToSave_Load.Instance.currentPoints;
+
         Debug.Log("Datos Guardados");
 
         bf.Serialize(file, dataG);
@@ -60,6 +62,7 @@ public class LoadSave : MonoBehaviour
                 DataToSave_Load.Instance.unitsStatus[i] = dataG.unitsStatus[i];
 //                Debug.Log(dataG.unitsStatus[i]);
             }
+            DataToSave_Load.Instance.currentPoints = dataG.playerPoints;
 
            // Debug.Log("Datos cargados");
 
@@ -79,5 +82,6 @@ public class LoadSave : MonoBehaviour
     class DataGame
     {
         public bool[] unitsStatus = new bool[5];
+        public int playerPoints;
     }
 }

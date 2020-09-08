@@ -17,7 +17,6 @@ public class UI_Controller : MonoBehaviour
     [Header("Results")]
     public GameObject backgroundResults;
     public TextMeshProUGUI messageResult;
-    public TextMeshProUGUI averageTxt;
 
     [Header("Bar progress")]
     public Slider barProgress;
@@ -62,11 +61,14 @@ public class UI_Controller : MonoBehaviour
         SetInfoUnit();
     }
 
-    public void ShowResultsUnit(string theMessage, string average)
-    {
-        messageResult.text = theMessage;
-        averageTxt.text = average;
-        backgroundResults.SetActive(true);
+    public void ShowResultsUnit(string theMessage, float average)
+    {   
+        if(average > 0)
+            messageResult.text = string.Format(theMessage, average);
+        else
+            messageResult.text = theMessage;
+        if(!backgroundResults.activeInHierarchy)
+            backgroundResults.SetActive(true);
     }
 
     public void SetInfoUnit()
